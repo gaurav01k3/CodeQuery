@@ -1,0 +1,16 @@
+.article-container-col-2{
+    flex: 1;
+    padding: 30px 10px 0 10px;
+}
+
+.article-container-header{
+    display: flex;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+}
+
+.article-container-header div{
+    margin-left: 15px;
+    font-weight: 400;
+}

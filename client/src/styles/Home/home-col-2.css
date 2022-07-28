@@ -1,0 +1,56 @@
+.home-col-2-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 5px 10px;
+}
+
+.home-col-2-header-title {
+    font-size: 30px;
+}
+
+.home-col-2-header-ask-button {
+    font-size: 16px;
+    border: 2px solid;
+    padding: 8px;
+    background-color: #4e9afc;
+    color: white;
+    cursor: pointer;
+}
+
+.home-col-2-header-ask-button:hover {
+    background-color: #4e99fce0;
+}
+
+.home-col-2-tag-row {
+    height: max-content;
+    width: max-content;
+    margin-left: auto;
+    display: flex;
+    border-radius: 3px;
+}
+
+.home-col-2-tag-row-item {
+    /* border: 1px solid; */
+    border: .5px solid rgba(128, 128, 128, 0.315);
+    width: max-content;
+    padding: 12px 16px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.home-col-2-tag-row-item:hover {
+    background-color: #fdce4b;
+    color: white;
+}
+
+.home-col-2-bottom{
+    padding: 20px 20px;
+    font-size: 18px;
+    text-align: center;
+}

@@ -1,0 +1,391 @@
+1. What is OS?
+2. Explain 5 feartues of OS?
+3. 5 types of OS?
+4. RAM vs ROM
+5. SRAM vs DRAM
+6. PROM vs EPROM vs EEPROM
+7. Virtualization and conterization?
+8. BIOS and UEFI
+9. MBR and GPT
+10. Compiler, Assembler, Loader, Interpreter?
+11. System call, API, Kernel, Shell, booting?
+12. Shell VS Kernel?
+13. Multiprogramming, multiprocessing, multitasking, multithreading?
+14. Turn on computer?
+15. Program, process?
+16. States of process?
+17. Process control block?
+18. Process in memory?
+19. Process VS thread?
+20. Process scheduling?
+21. Process scheduling?
+22. Types of schedulers?
+23. Context switching?
+24. Inter Process Communication (IPC)
+25. 
+
+
+
+
+========================
+========================
+========================
+========================
+
+
+
+OS is a interface b/w computer user and computer hardware.
+Functions of OS are:
+1. Memory managment
+2. Process managment
+3. Security
+4. Device management
+5. Coordination b/w other software and users
+
+========
+========
+
+1. Memory management-> Managing primary and secondary memory.
+2. Process management-> Decides which process should be in which state of process cycle and manages job scheduling.
+	Also decides when and for how much timean I/O device should be allocated to a process.
+3. Security-> Provides protection and security from viruses and unauthorized access.
+4. Device managementl-> Which process should get which I/O device when and for how much time.
+4. Coordination-> Establishing and breaking connections b/w among system softwares or between two or more systems.
+
+========
+========
+
+1. Batch OS-> In batch OS user don't interact with the compuuter directly, instead he prepares the job on some off line
+	device like punch card and give it to the computer operator. Computer operator then make batches of similar
+	kind of jobs to speed up the job completion. Similar jobs means which require same compiler, same I/O device,etc.
+
+2. Time sharing OS-> In time sharing OS every user have some alloted time slice, his process will execute only his/her
+	time slot. In this OS there are multiple users sharing the same system with separate memory fot their process.
+
+3. Distributed OS (DOS)-> In this type of OS the parts can be located at different geographical locations and connected
+	through a network.
+
+4. Network OS-> Network Operating System runs on a server and gives the server the capability to manage data, users,
+	groups, security, applications, and other networking functions. The basic purpose of the network operating
+	system is to allow shared file and printer access among multiple computers in a network, typically a local
+	area network (LAN), a private network or to other networks.
+
+5. Real Time OS(RTOS)-> These types of OS are used in places where the tasks must be completed in strict time limits
+	i.e. any delay or task completion before deadline can have major consequenses. Example-> welding a car using a
+	robot, air traffict control etc.
+
+========
+========
+
+RAM-> RAM stands for Random Access memory. It is also known as the primary or main memory of the computer.RAM is
+	directly accessible by CPU. If user wants to run any program then first of all it gets loaded into the RAM.
+	Its content got lost when the power supply stops. Its content is not permanent and can be changed by user
+	actions easily. 
+ROM->  ROM stands for Read Only Memmory, its content is permanent and can not be changed by any any action of user. Its
+	content is not lost when power supply is lost.
+
+========
+========
+
+SRAM-> Full form- Static Random Access Memory. To store data it uses 6 transistor cell. It is used mainly as a cache
+	memory of CPU. It is faster than other types of RAM like DRAM and consumes less power. It is costly than DRAM.
+DRAM-> Full form- Dynamic RAM. It is constructed using capacitor and few transistors. It is slower than SRAM, consumes
+	more power than SRAM and cheaper than SRAM.
+
+========
+========
+
+PROM-> Programable ROM. Its content can be reprogramed only once by a user.
+EPROM-> Erasable Programable ROM. Its content can be reprogramed any no of times using ultra violet light.
+EEPROM-> Electrically Erasable Programable ROM. It can reprogramed any no of times using normal electricity.
+
+========
+========
+
+Virtualization-> In this technique we creates a hardware level isolation between the original system and the applications software.
+	This kind of applications are heavy weight. e.g VMware.
+Containerization-> In this technique we create a OS level isolation between the original system and the contarization applications 
+	This kind of applications are light weight. e.g Docker
+
+========
+========
+
+BIOS-> Basic Input Output System. It's a low level sofwtare that resides in a chip on the computer's motherboard. It loads when the 
+	computer startups and is responsible for waking up computer hardware and ensures that everything is working fine. Then it runs
+	the bootloader that boots the OS of the system. Its interface only supports keyboard inputs ans is not very interactive.
+Limitations:
+	It can only boot from drives which are 2.1TB or less.
+	It runs in 16 bit processor mode and has only 1MB of space to execute in.
+	It takes a lot of time in  initializing all the computer hardware.
+
+UEFI-> Unified Extensible Firmware Interface. It can load from drives of size upto 9.4 Zettabytes. Means almost 3 times of total data
+	internet. It can run in 32 or 64 bit mode and also has more space then BIOS. It has fast loading time then BIOS. Its interface
+	also support graphics and mouse cursor.
+
+========
+========
+
+MBR-> Master Boot Record. Its call Master Boot Record because it a special boot sector located at the beginning of a drive. It contains the
+	boot loader for the installed OS and information about the drives logical partition. Boot loader is a small bit of code that loads
+	the large boot loader from another partition on a drive.
+Limitations:
+	MBR only works with disks upto 2TB.
+	It only supports only upto 4 primary partitions. If we have ro create more partitions then we have to make partition inside partition,
+	which is kind of a silly hack as in original we can only create max 4 partitions.
+
+GPT-> GUID Partition Table. It is associated with UEFI. GUID is a long random string for every partition on the GPT. Every partiton has its own
+	unique identifier. GPT drives can create partitions in very large drives as compared to MBR. And can create a large no of partitons also.
+	On an MBR disk, the partitioning and boot data is stored in one place. If this data is overwritten or corrupted, you’re in trouble. In
+	contrast, GPT stores multiple copies of this data across the disk, so it’s much more robust and can recover if the data is corrupted.
+	GPT also stores cyclic redundancy check (CRC) values to check that its data is intact. If the data is corrupted, GPT can notice the
+	problem and attempt to recover the damaged data from another location on the disk. MBR had no way of knowing if its data was corrupted—you’d
+	only see there was a problem when the boot process failed or your drive’s partitions vanished.
+
+========
+========
+
+HLL-> pre processor-> compiler-> assembler-> linker/loader-> Machine code(LLL)
+
+========
+========
+
+Compiler-> These are the computer softwares that translates source codes written in high level languages into a set of machine language intructions
+	that can be understood by digital computers. It converts the whole program to machine code at once not line by line like interpreter. It also
+	have features like error checking etc. Some compilers generate high level language to assembly language which then got converted to machine
+	language by assembler.
+
+Loader-> It ensures that all necessary programs are loaded into the main memory which are essential during the startup phase of a program. It involves
+	reading the contents of the program, doing important preparatory tasks that helps the program for running.It takes less time for light programs
+	and more time for heavy programs.
+
+Assembler-> It is used to convert program writtem in assembly code(mnemonics e.g. MUL,ADD,SUB etc) to machine language. Assembler is the first interface
+	that is able to communicate humans with machines.
+
+Interpreter-> It executes the instructions written in HLL line by line. It directly executes the line witout converting it to machine language. If there
+	is an error in any line then the execution got terminates at that line.
+
+Diff b/w compiler and interpeter-> https://www.geeksforgeeks.org/language-processors-assembler-compiler-and-interpreter/
+
+System call-> A system call is a way for programs to interact with the OS. As computer program makes a system call when it makes the request to the OS kernel.
+	System calls provides the services of the OS to the user programs. It is the only entry points into the system kernel.
+	e.g processs control, file management, device management etc.
+
+API-> An API is a set of definitions and protocols for building and integrating application software. API stands for application programming interface.
+	APIs let your product or service communicate with other products and services without having to know how they’re implemented. This can simplify app
+	development, saving time and money.
+
+Kernel-> Kernel acts as a bridge between applications and data processing performed at hardware level using inter-process communication and system calls.
+	Kernel loads first into memory when an operating system is loaded and remains into memory until operating system is shut down again. It is responsible
+	for various tasks such as disk management, task management, and memory management.
+
+Shell-> A shell is an environment or a special user program which provide an interface to user to use operating system services. It executes programs based on
+	the input provided by the user.
+
+Diff b/w shell and kernel-> https://www.geeksforgeeks.org/difference-between-shell-and-kernel/
+
+Booting-> The procedure of starting a computer by loading the kernel is known as Booting the system. Hence it needs a special program, stored in ROM to do
+	this job known as the Bootstrap loader. Bootstrap loader locates the kernel, loads it into main memory and starts its execution.Booting is a startup
+	sequence that starts the operating system of a computer when it is turned on. A boot sequence is the initial set of operations that the computer
+	performs when it is switched on. Every computer has a boot sequence.
+
+========
+========
+
+Multiprogramming-> A system running more than one process at a time using some scheduling algorithm. It gives the user an illusion that all the process are running
+	simultaneously but in reall the processor is switching between them very quickly.
+
+Multiprocessing-> A system using two or more processors to perform multiple operations simultaneously.
+
+Multitasking-> In multitasking a system is running multiple process. It works on the concept of time sharing means every process will run for a particular time
+	and then next process and so on in a cyclic process.
+
+Multithreading-> In multithreading a process have multiple parts of it which are executing separately but are sharing the same memory as the main process.
+
+=========
+=========
+
+what-happens-when-we-turn-on-computer 
+	1. BIOS
+	2. MBR
+	3. Init
+
+=========
+=========
+
+Program-> A program is a passive entity that resides in the secondary of the computer. It stores the instruction about how to run that program, resources required etc.
+
+Process-> When a program is in a running state then it is called a process. A process is a active state of program it resides in the primary memory.
+
+========
+========
+
+States of a process-> There are 5 states of a process:
+	1. New- The process is in the stage of being created. Means it 
+	2. Ready- The process has all the resources available to get run but the CPU is not free yet.
+	3. Running- The CPU is currently working on this process.
+	4. Waiting- The process can not run at the moment because it is waiting for some resources to become available like keyboard, mouse etc, or waiting for some inter
+		process message or a timer to go off etc.
+	5. Terminated- The process has either completed or got aborted due to some error.
+
+========
+========
+
+Process Control Block-> For every process there is a PCB which stores the following information:
+	Pointer-> It is a pointer which points the position where the process got stopped while context switching.
+	Process State-> Current state of process Running, waiting etc.
+	Process ID-> The ID of the process.
+	Program counter-> It stores the counter which contains the address of the next instruction to be executed.
+	Open files list-> The information includes the list of files opened for a process.
+	etc.
+
+========
+========
+
+Process in memory-> A process have following parts in its memory stack:
+	Text section-> Text section have all the instructions of the process means which resources are required 
+	Data section-> It contains the global and static variables that are initialized by the program before execution.
+	Heap-> It is used for the variables whoes size can not be determined before program execution so here it uses heap for dynamic memory allocation.
+	Stack-> It stores the data related to function calls. It grows in the opposite direction of heap to avoid memory collision.
+
+========
+========
+
+Process VS Thread
+
+	1. Process is any program in execution.
+	   Thread is a segment of process.
+
+	2. Process takes more time to create and terminate.
+	   It takes less time to create and terminate.
+
+	3. Process has less efficient communication.
+	   More efficient in commucination.
+
+	4. Process is heavy weight.
+	   Thread is light weight.
+
+========
+========
+
+Process Scheduling-> It is the activity of process manager to remove the current process from the CPU and choose new one to run on the basis of some
+	scheduling algorithm. It plays the major role in mutiprogramming OS.
+
+Process Scheduling queues-> The OS maintains separate queues for each process states and PCB of process which are in same state are present in the
+	same queue. When the state of the process is changed it got removed from the current state queue and added to the new one.
+
+	1. Job queue-> It keeps all the process in the system.
+	2. Ready queue-> It keeps all the process in the main memory ready and waiting to execute.
+	3. Device queue-> The process which are waiting for some I/O device are kept in this queue.
+
+Schedulers-> They are the softwares which handles process sceduling, its main task is to select the process submitted into system memory and to decide
+	which process to run. There are 3 types of schedulers:
+
+	1. Long term scheduler-> It is also called a job scheduler. It selects should admitted to main memory for processing. Its main job is to select
+		a proper mix of I/O bound and process bound process. It also controls the degree of multiprogramming i.e no of process entering the system
+		should equal to no of process leaving the system. It selects the process from new state and admit it to ready state. Its speed is low.
+
+	2. Short term scheduler-> It is also called CPU scheduler. It increase the system performance accoring to choosen criteria. It selects process from 
+		ready state and admitt to running state i.e allocate CPU to one of the process. It is also known as dispatcher. Its speed is fast.
+
+	3. Medium term scheduler-> Its main task is swapping. Means if a process makes I/O request then the process got suspended this is called swapping.
+		Its speed is in between long and short term scheduler. It then reintroduces the process in the memrory when the request got full filled.
+
+Context switching-> When the scheduler switches from executing one process to another then the state of the current running process is stored in to the
+	process control block. Then the process state for the ptocess to get run next is loaded from its own PCB and set the PC, registers, etc. 
+
+========
+========
+
+In general there are two types of process:
+
+Independent process-> The process which did not get affected by the execution of other processes.
+Dependent/co-operating process-> The process which got effected by the execution of other process are called the cooperating process. Hence to do their task
+	efficiently such processes need to communicate with each other.
+
+IPC-> It stands for Inter Process Communication. It is a mechanism that allows process to communicate with each other. It cann be of 2 types:
+	1. Shared memory
+	2. Message passing
+
+Shared memory-> It requires the communicating processes to establish a region of shared memory.
+		1. It resides in the address space of the process which creates the shared memory segment.
+		2. The other process which wants to communicate must have to attach this memory segment to its address space.
+		3. By default the OS does not allow any processs to access memory of other process.
+		4. So to share memory all process which wants to establish the sommunication must have to agree to remove this default restriction.
+		e.g Producer consumer problem
+		Buffer-> The shared memory region b/w the communicating processes.
+
+		Unbounded buffer-> In this type of buffer its size is unlimited means the producer can always produce items i.e. the buffer will never
+			get filed completely. And the consumer have to wait for producer to produce items if the buffer is empty else it will consume.
+		Bounded buffer-> This type of buffer has a size limited size. Producer have to wait to produce new items if the buffer is full else it will produce
+			new items. Consumer have to wait if the bufffer is empty else it will consume the items.
+
+Message paasing->  It allows the process to communicate with each other without sharing the same address space. It is useful in ditributed enviorment where the
+		communicating processes may reside on different system connected by a network.
+		It privides operations- send(message), receive(message)
+		Types of sent message- Fixed size, variable size
+
+		1.Fixed size-> System level implementation is easy.
+				The task of programming is more difficult.
+		2. Variable size-> System level implementation is difficult.
+				The task of programming is simpler.
+
+If 2 process P and Q wants communicate with each other via message passing then there must exist a communication link b/w them.
+
+Types of message passing:
+1. Naming
+
+	Direct communication->
+	Processs which needs to communicate must have to explicitly name sender or receiver.
+		e.g send(P,message)
+	    	receive(Q,receive)
+		Communication link is established automatically, the processes just need to know each other identity.
+		
+		Disadvantage:
+			If the name of a process got changed then it caould lead to examinine all the process defifniton to find out the name of target process.
+
+	Indirect communication->
+	In  this the process the messages are sent and receive from mailboxes ot ports.
+		e.g. send(A,message)-> Send a message to mailbox A.
+		     receive(A,message)-> Receive a message from mailbox A.
+		A mailbox is an object in which process and place message and remove message.
+		Each mailbox has a unique identification.
+		Two process can communicate if they have a shared mailbox.
+		A mailbox can shared among more than 2 processes.
+		2 processes can have mulriple no of shared mailbox.
+		
+		Disadvantage:
+			e.g. If three process(P1,P2,P3) are sharing a mailbox A. And P1 sends a message to mailbox A, at the same time if process P2 and P3 executes
+			receive operation from mailbox A. Then then the problem whether process P2 or P3 will receive the message.
+			Solution: We can solve this problem in 3 ways:
+				1. A mailbox can have atmost 2 process at a time.
+				2. In a mailbox only 1 process can execute the receive operation at a time.
+				3. The system basis on some algorithm deceides that which process will execute the receive operation.
+
+2. Synchronization
+
+	In this the message passing can either be blocking or non-blocking also known as synchronous and asynchronous.
+	
+	Blocking send-> The message is blocked until the message is received by the receiving process or mailbox.
+	Non-blocking sen-> After sending the message it will not wait for the message to be received by the receiving process or mailbox.
+
+	Blocking receive-> The receiver gets blocked until a message is available.
+	Non-blocking receive-> The receiver retrives either a valid message or NULL.
+
+3. Buffering
+
+	Whether communication is direct or indirect, messages exchanged by communicating processes reside in a temporary queue. This queue can be implemented in 3 ways:
+	
+	a. Zero capacity buffer-> The queue has a max length of zero, i.e. the queue can not have any messages waiting in it. In this case, the sender must block until the
+		recipient receives the message.
+	b. Bounded capacity buffer-> The queue has a fixed length. I the queue is not full when a message is sent, the message is placed in the queue and the sender can
+		continue execution without waiting. If the queue is full the sender must block until space is availabe in the queue.
+	c. Unbounded capacity buffer-> The length of the queue is infinite thus any no of messages can wait in it. The sender never blocks.
+
+
+
+
+	
+
+
+
+

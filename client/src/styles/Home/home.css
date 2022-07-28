@@ -1,0 +1,40 @@
+.home-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    min-height: 100vh;
+    display: flex;
+}
+
+.home-col-2 {
+    flex: 1;
+    padding: 0 10px 0 0;
+    border-left: .5px solid rgba(128, 128, 128, 0.315);
+}
+
+
+.home-col-3 {
+    width: 25%;
+    display: none;
+}
+
+.home-colo-3-header{
+    text-align: center;
+    font-size: 18px;
+}
+
+.home-col-3-img{
+ width: 100%;
+}
+
+.home-col-3-img img{
+    width: 100%;
+    object-fit: contain;
+}
+
+
+@media screen and (min-width:990px) {
+    .home-col-3{
+        display: block;
+    }
+}
+

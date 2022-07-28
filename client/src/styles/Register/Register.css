@@ -1,0 +1,132 @@
+.register-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Signup Third party  */
+.login-signup-button {
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid rgb(201, 201, 201);
+    margin-bottom: 10px;
+    font-size: 14px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.login-signup-button-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+}
+
+.login-signup-button-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+}
+
+.git-button {
+    background-color: hsl(210, 8%, 20%);
+    color: #FFFFFF;
+}
+
+/* --------------->> */
+
+
+/* Feilds  */
+
+.register-fields {
+    width: 100%;
+    height: max-content;
+    padding: 30px 0 30px 0;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 10px 25px rgb(0 0 0 / 5%), 0 20px 48px rgb(0 0 0 / 5%), 0 1px 4px rgb(0 0 0 / 10%);
+    border-radius: 8px;
+}
+
+.register-field-wrap {
+    flex-direction: column;
+    background: none;
+}
+
+.register-field-wrap-item {
+    display: flex;
+    width: 85%;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.register-field-wrap-item label {
+    font-size: 14px;
+    font-weight: 600;
+    color: hsl(210, 8%, 5%);
+    cursor: pointer;
+    margin-left: 4px;
+}
+
+.register-field-input {
+    border: 1px solid grey;
+    border-radius: 4px;
+    outline: none;
+    height: 35px;
+    padding: 3px 10px 3px 10px;
+}
+
+.register-field-input-RB {
+    border: 1.5px solid hsl(358, 68%, 59%);
+    /* box-shadow: 0 0 3px 3px hsl(358, 68%, 59%); */
+}
+
+.register-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.register-label-row a {
+    color: hsl(206, 100%, 40%);
+}
+
+.register-forgot-pass {
+    font-size: 12px;
+}
+
+.register-submit-button {
+    width: 85%;
+    height: 40px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #4e9afc;
+    color: #FFFFFF;
+}
+
+/* --------------->> */
+
+/* login bottom  */
+.register-bottom-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-size: 12px;
+}
+
+.register-bottom-links pre {
+    color: hsl(206, 100%, 40%);
+}

@@ -1,0 +1,32 @@
+.profile-drop-wrapper{
+    box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+    position: absolute;
+    top: 100%;
+    right:0px;
+    height: max-content;
+    width: 250px;
+    padding: 5px 0;
+    background-color: white;
+}
+
+.profile-drop-item{
+    padding: 5px 8px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-drop-item:hover{
+    background-color: whitesmoke;
+}
+
+.profile-item-heading{
+    text-transform: capitalize;
+    font-size: 16px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: color .2s ease-in;
+}
+
+.profile-item-heading:hover{
+    font-weight: 600;
+}

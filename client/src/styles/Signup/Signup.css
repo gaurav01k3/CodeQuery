@@ -1,0 +1,92 @@
+.signup-wrapper {
+    margin: 20px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* left  */
+.signup-left {
+    margin-left: 50px;
+    width: max-content;
+    padding: 5px;
+}
+
+.signup-left-1 {
+    font-size: 30px;
+}
+
+.signup-left-2 {
+    display: flex;
+    font-size: 18px;
+    margin-top: 14px;
+    color: #5d6586;
+}
+
+.signup-left-2 div {
+    margin-left: 10px;
+}
+
+
+/* right  */
+
+
+.signup-right-header {
+    text-align: center;
+    font-size: 21px;
+    padding: 20px 0;
+    max-width: 400px;
+    margin: 0 auto;
+    display: none;
+    border: 2px solid;
+}
+
+
+.signup-right {
+    margin: 0px 50px;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-password-input::after {
+    content: "Passwords must contain at least eight characters, including at least 1 letter and 1 number.";
+    font-size: 12px;
+    margin-top: 5px;
+    color: hsl(210, 8%, 45%);
+}
+
+
+.signup-submit-button {
+    width: 80%;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+.signup-submit-button span {
+    color: hsl(206, 100%, 40%);
+}
+
+
+@media screen and (max-width:900px) {
+    .signup-left {
+        display: none;
+    }
+
+    .signup-right-header {
+        display: block;
+    }
+
+    .signup-wrapper {
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .signup-right-header {
+        display: block;
+        font-size: 18px;
+    }
+}
