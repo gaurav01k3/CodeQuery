@@ -7,6 +7,7 @@ const questionRouter = require('./routers/questionRouter/question.router');
 const cookieParser = require('cookie-parser');
 const answerRouter = require('./routers/answerRouter/answer.router');
 const articleRouter = require('./routers/articleRouter/article.router');
+const cors = require('cors');
 
 const app = express();
 
@@ -15,7 +16,7 @@ dotenv.config({ path: './config.env' });
 const PORT = process.env.PORT || 5000;
 
 connectDB();
-
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
