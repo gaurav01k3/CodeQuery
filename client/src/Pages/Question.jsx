@@ -3,7 +3,7 @@ import '../styles/Home/home.css';
 import '../styles/Home/home-col-2.css';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import axios from 'axios';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import '../styles/Question/question-col-2.css'
 import MDEditor from '@uiw/react-md-editor';
 import { TiArrowSortedUp, TiArrowSortedDown } from 'react-icons/ti';
@@ -26,6 +26,13 @@ const Question = () => {
     const [bodyContent, setBodyContent] = useState("");
     const [isVoted, setIsvoted] = useState(false);
     const user = useSelector((state) => state.userDetails.existingUser);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/login');
+        }
+    })
 
 
     const queryClient = useQueryClient();
