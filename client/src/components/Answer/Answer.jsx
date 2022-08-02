@@ -17,7 +17,7 @@ const Answer = ({ ques_id, data: answer }) => {
 
     console.log(answer._id);
 
-    const notify = () => toast.info('You cannot vote for your own answer!', {
+    const notify = () => toast.warning('You cannot vote for your own answer!', {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: true,
@@ -102,8 +102,7 @@ const Answer = ({ ques_id, data: answer }) => {
                 rtl={false}
                 pauseOnFocusLoss
                 draggable
-                pauseOnHover
-                theme='colored' />
+                pauseOnHover />
             <div className="question-body-wrapper">
                 <div className='question-actions'>
                     <div className='question-vote-icon'>

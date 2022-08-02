@@ -18,8 +18,8 @@ const HomeColLeft = () => {
                 <Link to='/'>
                     <div className={splitLocation[1] === "" ? "home-col-item home-col-item-active" : "home-col-item"}>Home</div>
                 </Link>
-                <Link to='/'>
-                    <div className={splitLocation[1] === "question" ? "home-col-item home-col-item-active" : "home-col-item"}>Questions</div>
+                <Link to='/write'>
+                    <div className={splitLocation[1] === "question" ? "home-col-item home-col-item-active" : "home-col-item"}>Write</div>
                 </Link>
                 <Link to='/articles'>
                     <div className={splitLocation[1] === "articles" ? "home-col-item home-col-item-active" : "home-col-item"}>Articles</div>

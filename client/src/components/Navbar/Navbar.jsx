@@ -8,29 +8,21 @@ import ProfileDrop from './ProfileDrop';
 
 const Navbar = () => {
 
+    const location = useLocation();
+    //destructuring pathname from location
+    // const { pathname } = location;
+    // const splitLocation = pathname.split("/");
+
     const [isHamOpen, setIsHamOpen] = useState(false);
-
     const [isSearchOpen, setIsSearchOpen] = useState(0);
-
     const [isProfileDropOpen, setIsProfileDropOpen] = useState(0);
-
-    // console.log(isSearchOpen);
 
     const profileDropElem = useRef();
     const profileCircle = useRef();
-    // console.log(profileDropElem.current);
-
-
     const navigate = useNavigate();
-
 
     // Storing token to verifying login and logout
     const token = Cookies.get('CQ-token');
-
-
-    const location = useLocation();
-
-
 
     // drop down handler
     useEffect(() => {
@@ -54,18 +46,40 @@ const Navbar = () => {
         setIsProfileDropOpen(false);
     }, [location])
 
-
-
     const handleHam = () => {
         if (isHamOpen) setIsHamOpen(false);
         else setIsHamOpen(true);
     }
 
-
-
     const handleSearch = () => {
         setIsSearchOpen(!isSearchOpen);
     }
+
+
+    //closing actions of ham menu
+
+    const hamRef = useRef();
+
+    useEffect(() => {
+        const closeHandler = (event) => {
+            if (!hamRef.current.contains(event.target)) {
+                setIsHamOpen(false);
+            }
+        }
+
+        document.addEventListener("mousedown", closeHandler);
+
+        return () => {
+            document.addEventListener("mousedown", closeHandler);
+        }
+    })
+
+
+    //close ham menu if item clicked
+    useEffect(() => {
+        setIsHamOpen(false)
+    }, [location])
+
 
     return (
         <div
@@ -149,21 +163,19 @@ const Navbar = () => {
 
                 {/* //Ham menu  */}
                 <div
+                    ref={hamRef}
                     className='ham-menu' style={{ display: isHamOpen ? 'block' : 'none' }}>
                     <Link to='/'>
                         <div>Home</div>
                     </Link>
-                    <Link to='/'>
-                        {/* <div>Posts</div> */}
-                    </Link>
                     <Link to='/write'>
                         <div>Write</div>
                     </Link>
-                    <Link to='/'>
-                        <div>About</div>
+                    <Link to='/articles'>
+                        <div>Articles</div>
                     </Link>
                     <Link to='/'>
-                        {/* <div>Leaderboard</div> */}
+                        <div>About</div>
                     </Link>
                 </div>
             </div>

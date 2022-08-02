@@ -7,8 +7,6 @@ const QuestionCard = ({ data }) => {
 
     const navigate = useNavigate();
 
-    console.log(data);
-
     return (
         <div className="home-question-card">
             <div className="home-question-card-left">

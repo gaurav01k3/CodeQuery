@@ -6,13 +6,13 @@ const Write = () => {
 
     const article = {
         head: "Article",
-        subHead: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, porro nihil. Aliquid facere voluptatum nostrum nesciunt asperiores. Facere libero, iusto voluptatibus exercitationem blanditiis modi? Tenetur minima accusamus dolores quasi provident!",
+        subHead: "Good content is relatively easy to create. Most people don’t realize it, but everybody has interesting things to say. Good technique is harder — it can seem abstract and nuanced, and it’s often the thing that makes or breaks an article.",
         action: "Write an Article",
         route: "/write/article"
     }
     const question = {
         head: "Question",
-        subHead: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, porro nihil. Aliquid facere voluptatum nostrum nesciunt asperiores. Facere libero, iusto voluptatibus exercitationem blanditiis modi? Tenetur minima accusamus dolores quasi provident!",
+        subHead: "When asking a question, people will be better able to provide help if you provide code that they can easily understand and use to reproduce the problem. This is referred to by community members as creating a minimal, reproducible example",
         action: "Ask a question",
         route: "/write/question/ask"
     }

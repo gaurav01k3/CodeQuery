@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MDEditor from '@uiw/react-md-editor';
 import '../../styles/Question/askQuestion.css';
 import { RiCloseFill } from 'react-icons/ri';
 import { useMutation } from "react-query";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+
 
 
 const AskQuestion = () => {
@@ -13,7 +15,15 @@ const AskQuestion = () => {
     const user = useSelector((state) => state.userDetails.existingUser);
     // console.log(user._id);
 
+    const navigate = useNavigate();
+
     const [isMyInputFocused, setIsMyInputFocused] = useState(false);
+    // const [ques, setQues] = useState({});
+
+    // useEffect(() => {
+    //     console.log(ques);
+    // }, [ques])
+
 
     const [title, setTitle] = useState("");
     const [bodyContent, setBodyContent] = useState("");
@@ -41,7 +51,7 @@ const AskQuestion = () => {
 
 
     //asking the question
-    const { mutate, isLoading } = useMutation(
+    const { mutate } = useMutation(
         async data => {
             await axios({
                 method: 'post',
@@ -51,10 +61,12 @@ const AskQuestion = () => {
         },
         {
             onSuccess: () => {
-                alert('question posted successfully');
-                setTitle("");
-                setBodyContent("");
-                setTags([]);
+                // alert('question posted successfully');
+                // setTitle("");
+                // setBodyContent("");
+                // setTags([]);
+                // setQues(ques)
+                navigate(`/`);
             }
         }
     )

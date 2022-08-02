@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../styles/Home/home.css';
 import '../styles/Home/home-col-2.css';
 import QuestionCard from '../components/Home/QuestionCard';
@@ -12,6 +12,10 @@ import HomeCol3 from '../components/Home/HomeCol3';
 
 const Home = () => {
 
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const navigate = useNavigate();
 
@@ -47,16 +51,13 @@ const Home = () => {
                 </div>
                 <div className="home-col-2-tag-row">
                     <div className="home-col-2-tag-row-item">
+                        Today
+                    </div>
+                    <div className="home-col-2-tag-row-item">
                         Week
                     </div>
                     <div className="home-col-2-tag-row-item">
                         Month
-                    </div>
-                    <div className="home-col-2-tag-row-item">
-                        Hot
-                    </div>
-                    <div className="home-col-2-tag-row-item">
-                        Interesting
                     </div>
                 </div>
                 {

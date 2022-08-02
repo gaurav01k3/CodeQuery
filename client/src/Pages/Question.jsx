@@ -209,7 +209,7 @@ const Question = () => {
                                 asked <Moment fromNow>{question?.data.createdAt}</Moment>
                             </div>
                             <div className='owner-details'>
-                                Gaurav Kumar
+                                {question?.data.createdBy.name}
                             </div>
                         </div>
                         <div className='question-body-noa'>{question?.data.answers.length} Answers</div>

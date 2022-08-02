@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import img from '../../assets/github.png'
 import banner from '../../assets/banner.jpg'
 import '../../styles/Article/articleCard.css'
 import Moment from 'react-moment';
 import { useNavigate } from 'react-router';
+import { useState } from 'react';
 
 const ArticleCard = ({ articleData }) => {
+
+
+    const [body, setBody] = useState("");
+
+    useEffect(() => {
+        setBody(articleData?.body.replace(/\s?!\S+/g, ''));
+    }, [])
+
 
     const navigate = useNavigate();
 
@@ -28,7 +37,7 @@ const ArticleCard = ({ articleData }) => {
                         {articleData?.title}
                     </div>
                     <div className="article-card-sub-head">
-                        {articleData?.body}
+                        {body}
                     </div>
                 </div>
                 <div className="article-card-image">
