@@ -8,7 +8,7 @@ const HomeCol3 = () => {
                 <img src={bannerImg} alt="" />
             </div>
             <div className='home-colo-3-header'>
-                India's largest community at <a href="/">Codequery.in</a>
+                India's largest community at <a href="/">Codequery</a>
             </div>
         </div>
     )

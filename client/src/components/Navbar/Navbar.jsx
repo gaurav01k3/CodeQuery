@@ -59,10 +59,11 @@ const Navbar = () => {
     //closing actions of ham menu
 
     const hamRef = useRef();
+    const hamCrossRef = useRef();
 
     useEffect(() => {
         const closeHandler = (event) => {
-            if (!hamRef.current.contains(event.target)) {
+            if (!hamCrossRef.current.contains(event.target) && !hamRef.current.contains(event.target)) {
                 setIsHamOpen(false);
             }
         }
@@ -100,9 +101,9 @@ const Navbar = () => {
             <div
                 className='navbar-wrapper'>
                 <div
+                    ref={hamCrossRef}
                     onClick={() => handleHam()}
-                    className={isHamOpen ? "ham-wrabox ham-open" : "ham-wrabox"}
-                >
+                    className={isHamOpen ? "ham-wrabox ham-open" : "ham-wrabox"}>
                     <div className='hamburger-line'></div>
                 </div>
                 <Link to='/'>
