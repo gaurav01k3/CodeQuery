@@ -1,6 +1,6 @@
 const express = require("express");
 const questionModel = require("../../models/question.model");
-const { allQuestionsController, questionAskController, questionByIdController, addAnswerController, addVoteQuestionController, removeVoteQuestionController } = require('../../controller/question.controller')
+const { allQuestionsController, questionAskController, questionByIdController, addAnswerController, addVoteQuestionController, removeVoteQuestionController, addQuestionToUser } = require('../../controller/question.controller')
 
 
 
@@ -16,7 +16,6 @@ questionRouter.get('/all-questions', allQuestionsController)
 
 //get a particular question by id
 questionRouter.get('/question/:id', questionByIdController)
-
 
 //add answer to question
 questionRouter.put('/add-answer', addAnswerController)

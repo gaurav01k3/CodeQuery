@@ -57,7 +57,7 @@ const Question = () => {
         }
     )
 
-    //adding answer
+    //adding answer to question after posting it to answer model
     const { mutate: addAnswer } = useMutation(
         async (data) => {
             const res = await axios({

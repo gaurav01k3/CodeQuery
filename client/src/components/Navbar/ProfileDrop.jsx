@@ -34,15 +34,16 @@ const ProfileDrop = React.forwardRef((props, ref) => {
                 <BsBookmarkStar fontSize={25} />
                 <div className='profile-item-heading'>Bookmarks</div>
             </div>
-            <div className='profile-drop-item'>
+            <div className='profile-drop-item'
+                onClick={() => navigate('/articles')}>
                 <MdOutlineArticle fontSize={25} />
                 <div className='profile-item-heading'>Articles</div>
             </div>
             <div className='profile-drop-item'>
-                <IoIosLogOut fontSize={25} />
+                <IoIosLogOut color='#b23b3b' fontSize={25} />
                 <div
                     onClick={() => handleLogout()}
-                    className='profile-item-heading'>Sign out</div>
+                    className='profile-item-heading sign-out-btn'>Log out</div>
             </div>
         </div>
     )

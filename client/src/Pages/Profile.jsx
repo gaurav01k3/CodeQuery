@@ -1,4 +1,6 @@
+import axios from 'axios';
 import React from 'react'
+import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
 import HomeColLeft from '../components/Home/HomeColLeft'
 import '../styles/Profile/profile.css';
@@ -6,7 +8,17 @@ import '../styles/Profile/profile.css';
 const Profile = () => {
 
     const user = useSelector((state) => state.userDetails.existingUser);
-    // console.log(user._id);
+
+    const { data: userProf } = useQuery(
+        'user' + user._id,
+        async () => {
+            const res = await axios({
+                method: 'get',
+                url: `/api/v1/user-profile/${user._id}`
+            })
+            return res.data;
+        }
+    )
 
     return (
         <div className='home-wrapper'>
@@ -14,19 +26,19 @@ const Profile = () => {
             <div className='profile-wrapper'>
                 <div className="profile-header">
                     <div className="profile-image">
-                        <img src="https://lh3.googleusercontent.com/a-/AOh14GhLC9ya1tZEVq8eVfCjeOn6bVKFky1-9I8HGxoGww=k-s256" alt="" />
+                        <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" alt="" />
                         <div></div>
                     </div>
                     <div className="profile-details">
                         <div className="profile-details-name">
-                            {user?.name}
+                            {userProf?.name}
                         </div>
                         <div className="profile-details-title">
-                            Lorem ipsum
+                            {userProf?.title}
                         </div>
                         <div className="profile-details-joining">
                             <div className="profile-details-joining-dur">
-                                Member for lorem ipsum now
+                                {userProf?.joinDate}
                             </div>
                         </div>
                     </div>
@@ -41,7 +53,7 @@ const Profile = () => {
                     <div className="profile-stats-data-wrapper">
                         <div className="profile-stats-data-box">
                             <div className="profile-stats-data-quan">
-                                0
+                                {userProf?.questions.length}
                             </div>
                             <div className="profile-stats-data-title">
                                 questions
@@ -49,7 +61,7 @@ const Profile = () => {
                         </div>
                         <div className="profile-stats-data-box">
                             <div className="profile-stats-data-quan">
-                                0
+                                {userProf?.answers.length}
                             </div>
                             <div className="profile-stats-data-title">
                                 answers
@@ -57,7 +69,7 @@ const Profile = () => {
                         </div>
                         <div className="profile-stats-data-box">
                             <div className="profile-stats-data-quan">
-                                0
+                                {userProf?.articles.length}
                             </div>
                             <div className="profile-stats-data-title">
                                 articles

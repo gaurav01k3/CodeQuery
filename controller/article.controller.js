@@ -1,4 +1,5 @@
 const articleModel = require("../models/article.model");
+const userModel = require("../models/user.model");
 
 
 
@@ -20,7 +21,11 @@ const articleShareController = async (req, res) => {
 
         const data = await article.save();
 
-        res.json({ data });
+        // adding this new article to userdata
+        const user = await userModel.findByIdAndUpdate(createdBy,
+            { $push: { articles: data._id } }, { new: true });
+
+        res.json({ data, user });
 
     } catch (error) {
         console.log(error);

@@ -1,11 +1,12 @@
-.footer-container{
+.footer-container {
   height: max-content;
   width: 100%;
 }
 
 
-.footer-wrapper{
+.footer-wrapper {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   width: 70%;
@@ -15,7 +16,8 @@
 }
 
 
-.footer-item{
+.footer-item {
+  margin: 10px 5px;
   font-size: 16px;
   font-weight: 500;
   color: grey;

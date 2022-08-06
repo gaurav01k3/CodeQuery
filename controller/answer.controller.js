@@ -1,4 +1,5 @@
 const answerModel = require("../models/answer.model");
+const userModel = require("../models/user.model");
 
 const postAnswerController = async (req, res) => {
     const { body, question, createdBy } = req.body;
@@ -15,7 +16,16 @@ const postAnswerController = async (req, res) => {
         })
 
         const result = await answer.save();
+
+        // adding this new article to userdata
+        const user = await userModel.findByIdAndUpdate(createdBy,
+            { $push: { answers: result._id } }, { new: true });
+
+
+        //response must be send in order to call another api
+        // dont chnage it 
         res.send(result);
+
     } catch (error) {
         console.log(error);
     }

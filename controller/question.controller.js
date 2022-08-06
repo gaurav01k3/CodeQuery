@@ -1,7 +1,10 @@
+const { findByIdAndUpdate } = require("../models/question.model");
 const questionModel = require("../models/question.model");
+const userModel = require("../models/user.model");
 
 
 
+//ading question and then save this info to user for ref
 const questionAskController = async (req, res) => {
     const { title, body, tags, createdBy } = req.body;
 
@@ -32,14 +35,18 @@ const questionAskController = async (req, res) => {
             createdBy
         })
 
+        // saving question
         const data = await question.save();
 
-        res.json({ data });
+        // adding this new question to userdata
+        const user = await userModel.findByIdAndUpdate(createdBy,
+            { $push: { questions: data._id } }, { new: true });
+
+        res.json({ data, user });
     } catch (error) {
         console.log(error);
     }
 }
-
 
 const allQuestionsController = async (req, res) => {
     try {
@@ -117,5 +124,5 @@ module.exports = {
     questionByIdController,
     addAnswerController,
     addVoteQuestionController,
-    removeVoteQuestionController
+    removeVoteQuestionController,
 };

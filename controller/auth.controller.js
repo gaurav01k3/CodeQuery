@@ -2,6 +2,7 @@ var validator = require("email-validator");
 const bcryptjs = require("bcryptjs");
 const jwt = require('jsonwebtoken');
 const userModel = require("../models/user.model");
+const { findOne } = require("../models/user.model");
 
 const signupController = async (req, res) => {
 
@@ -71,4 +72,25 @@ const loginController = async (req, res) => {
     }
 }
 
-module.exports = { signupController, loginController };
+
+const getUserByIdController = async (req, res) => {
+
+    const { user_id } = req.params;
+
+    if (!user_id) {
+        return res.status(422).json({ message: "Cannot get user!!!" });
+    }
+
+    try {
+        const user = await userModel.findOne({ _id: user_id });
+
+        res.json(user);
+
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+
+module.exports = { signupController, loginController, getUserByIdController };

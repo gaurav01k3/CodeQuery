@@ -13,7 +13,9 @@ const Footer = () => {
                     href='https://www.linkedin.com/in/gauravkumar0130/'>
                     <div className="footer-item">LinkedIn</div>
                 </a>
-                <div className="footer-item">Contact Us</div>
+                <a
+                    href='mailto:gk956842@gmail.com'
+                    className="footer-item">Contact Us</a>
             </div>
         </div >
     );

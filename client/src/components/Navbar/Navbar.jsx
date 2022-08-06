@@ -7,11 +7,11 @@ import Cookies from 'js-cookie';
 import ProfileDrop from './ProfileDrop';
 
 const Navbar = () => {
+    // Storing token to verifying login and logout
+    const token = Cookies.get('CQ-token');
 
     const location = useLocation();
-    //destructuring pathname from location
-    // const { pathname } = location;
-    // const splitLocation = pathname.split("/");
+    const navigate = useNavigate();
 
     const [isHamOpen, setIsHamOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(0);
@@ -19,17 +19,20 @@ const Navbar = () => {
 
     const profileDropElem = useRef();
     const profileCircle = useRef();
-    const navigate = useNavigate();
 
-    // Storing token to verifying login and logout
-    const token = Cookies.get('CQ-token');
+    //close ham menu and drop menu if item clicked
+    useEffect(() => {
+        setIsHamOpen(false)
+        setIsProfileDropOpen(false);
+    }, [location])
 
-    // drop down handler
+
+    //  handing profile drop closing
     useEffect(() => {
 
         let handler = (event) => {
             // addied these conditions because of dual behaviour of drop down open
-            if (isProfileDropOpen && !profileDropElem.current.contains(event.target) && event.target !== profileCircle.current) {
+            if (!profileCircle.current.contains(event.target) && !profileDropElem.current.contains(event.target)) {
                 setIsProfileDropOpen(false);
             }
         }
@@ -41,23 +44,13 @@ const Navbar = () => {
         }
     })
 
-    //close profile drop down on location change 
-    useEffect(() => {
-        setIsProfileDropOpen(false);
-    }, [location])
-
-    const handleHam = () => {
-        if (isHamOpen) setIsHamOpen(false);
-        else setIsHamOpen(true);
-    }
-
-    const handleSearch = () => {
-        setIsSearchOpen(!isSearchOpen);
+    //handleProfileDrop
+    const handleProfileDrop = () => {
+        setIsProfileDropOpen(!isProfileDropOpen);
     }
 
 
     //closing actions of ham menu
-
     const hamRef = useRef();
     const hamCrossRef = useRef();
 
@@ -67,7 +60,6 @@ const Navbar = () => {
                 setIsHamOpen(false);
             }
         }
-
         document.addEventListener("mousedown", closeHandler);
 
         return () => {
@@ -75,11 +67,14 @@ const Navbar = () => {
         }
     })
 
+    const handleHam = () => {
+        setIsHamOpen(!isHamOpen);
+    }
 
-    //close ham menu if item clicked
-    useEffect(() => {
-        setIsHamOpen(false)
-    }, [location])
+    // search related
+    const handleSearch = () => {
+        setIsSearchOpen(!isSearchOpen);
+    }
 
 
     return (
@@ -107,8 +102,9 @@ const Navbar = () => {
                     <div className='hamburger-line'></div>
                 </div>
                 <Link to='/'>
-                    <div className="navabr-logo">
+                    <div className="navbar-logo">
                         CODEQUERY
+                        <div className='navbar-logo-beta'>beta</div>
                     </div>
                 </Link>
                 <div className="navbar-item-wrapper">
@@ -148,8 +144,9 @@ const Navbar = () => {
                                 </div>
                                 <div
                                     ref={profileCircle}
-                                    onClick={() => setIsProfileDropOpen(!isProfileDropOpen)}
+                                    onClick={handleProfileDrop}
                                     className='navbar-profile-circle'>
+                                    <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" alt="" />
                                 </div>
                             </div>
                         )
@@ -163,9 +160,9 @@ const Navbar = () => {
                 }
 
                 {/* //Ham menu  */}
-                <div
+                {isHamOpen ? <div
                     ref={hamRef}
-                    className='ham-menu' style={{ display: isHamOpen ? 'block' : 'none' }}>
+                    className='ham-menu'>
                     <Link to='/'>
                         <div>Home</div>
                     </Link>
@@ -178,7 +175,7 @@ const Navbar = () => {
                     <Link to='/'>
                         <div>About</div>
                     </Link>
-                </div>
+                </div> : null}
             </div>
         </div >
     )

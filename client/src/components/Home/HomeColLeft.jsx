@@ -16,10 +16,10 @@ const HomeColLeft = () => {
         <div className="home-col-left">
             <div className="home-col-item-wrapper">
                 <Link to='/'>
-                    <div className={splitLocation[1] === "" ? "home-col-item home-col-item-active" : "home-col-item"}>Home</div>
+                    <div className={splitLocation[1] === "" || splitLocation[1] === "question" ? "home-col-item home-col-item-active" : "home-col-item"}>Home</div>
                 </Link>
                 <Link to='/write'>
-                    <div className={splitLocation[1] === "question" ? "home-col-item home-col-item-active" : "home-col-item"}>Write</div>
+                    <div className={splitLocation[1] === "write" ? "home-col-item home-col-item-active" : "home-col-item"}>Write</div>
                 </Link>
                 <Link to='/articles'>
                     <div className={splitLocation[1] === "articles" ? "home-col-item home-col-item-active" : "home-col-item"}>Articles</div>
