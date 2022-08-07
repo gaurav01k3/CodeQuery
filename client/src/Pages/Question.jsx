@@ -23,6 +23,7 @@ import Loader from '../components/Loader/Loader';
 const Question = () => {
 
     const { id } = useParams();
+    console.log(id);
     const [bodyContent, setBodyContent] = useState("");
     const [isVoted, setIsvoted] = useState(false);
     const user = useSelector((state) => state.userDetails.existingUser);
