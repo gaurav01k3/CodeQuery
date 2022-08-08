@@ -6,7 +6,7 @@ const Write = () => {
 
     const article = {
         head: "Article",
-        subHead: "Good content is relatively easy to create. Most people don’t realize it, but everybody has interesting things to say. Good technique is harder — it can seem abstract and nuanced, and it’s often the thing that makes or breaks an article.",
+        subHead: "Good Article is relatively easy to create. Most people don’t realize it, but everybody has interesting things to say. Good technique is harder — it can seem abstract and nuanced, and it’s often the thing that makes or breaks an article.",
         action: "Write an Article",
         route: "/write/article"
     }

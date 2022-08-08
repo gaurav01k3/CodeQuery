@@ -10,11 +10,11 @@ const Profile = () => {
     const user = useSelector((state) => state.userDetails.existingUser);
 
     const { data: userProf } = useQuery(
-        'user' + user._id,
+        'user' + user?._id,
         async () => {
             const res = await axios({
                 method: 'get',
-                url: `/api/v1/user-profile/${user._id}`
+                url: `/api/v1/user-profile/${user?._id}`
             })
             return res.data;
         }

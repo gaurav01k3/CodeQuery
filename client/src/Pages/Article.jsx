@@ -10,7 +10,6 @@ import Loader from '../components/Loader/Loader';
 const Article = () => {
 
     const { id } = useParams();
-    console.log(id);
 
     const { data, isLoading } = useQuery(
         'article' + id,
@@ -23,15 +22,13 @@ const Article = () => {
         }
     )
 
-    console.log(data);
-
     return (
 
         !isLoading ?
             <div className='article-wrapper'>
                 <div className="article-owner-details">
                     <div className="article-owner-profile">
-                        <img src="" alt="" />
+                        <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" alt="" />
                     </div>
                     <div className="article-credentials">
                         <div className="article-owner-name">

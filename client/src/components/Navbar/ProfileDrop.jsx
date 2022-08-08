@@ -17,6 +17,7 @@ const ProfileDrop = React.forwardRef((props, ref) => {
     const handleLogout = () => {
         Cookies.remove('CQ-token');
         dispatch(getUser({}));
+        localStorage.removeItem('CQ-user');
         window.location.reload();
     }
 

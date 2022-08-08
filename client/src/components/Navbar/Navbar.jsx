@@ -11,11 +11,15 @@ const Navbar = () => {
     const token = Cookies.get('CQ-token');
 
     const location = useLocation();
+    const { pathname } = location;
+    const splitLocation = pathname.split("/");
+    console.log(splitLocation);
+
     const navigate = useNavigate();
 
     const [isHamOpen, setIsHamOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(0);
-    const [isProfileDropOpen, setIsProfileDropOpen] = useState(0);
+    const [isProfileDropOpen, setIsProfileDropOpen] = useState(false);
 
     const profileDropElem = useRef();
     const profileCircle = useRef();
@@ -30,9 +34,9 @@ const Navbar = () => {
     //  handing profile drop closing
     useEffect(() => {
 
-        let handler = (event) => {
+        const handler = (event) => {
             // addied these conditions because of dual behaviour of drop down open
-            if (!profileCircle.current.contains(event.target) && !profileDropElem.current.contains(event.target)) {
+            if (isProfileDropOpen && !profileCircle?.current?.contains(event.target) && !profileDropElem?.current?.contains(event.target)) {
                 setIsProfileDropOpen(false);
             }
         }
@@ -56,7 +60,7 @@ const Navbar = () => {
 
     useEffect(() => {
         const closeHandler = (event) => {
-            if (!hamCrossRef.current.contains(event.target) && !hamRef.current.contains(event.target)) {
+            if (!hamCrossRef?.current?.contains(event.target) && !hamRef?.current?.contains(event.target)) {
                 setIsHamOpen(false);
             }
         }
@@ -65,7 +69,7 @@ const Navbar = () => {
         return () => {
             document.addEventListener("mousedown", closeHandler);
         }
-    })
+    });
 
     const handleHam = () => {
         setIsHamOpen(!isHamOpen);
@@ -164,16 +168,19 @@ const Navbar = () => {
                     ref={hamRef}
                     className='ham-menu'>
                     <Link to='/'>
-                        <div>Home</div>
+                        <div className={splitLocation[1] === "" || splitLocation[1] === "question" ? "home-col-item-active" : ""}>Home</div>
                     </Link>
                     <Link to='/write'>
-                        <div>Write</div>
+                        <div className={splitLocation[1] === "write" ? "home-col-item-active" : ""}>Write</div>
                     </Link>
                     <Link to='/articles'>
-                        <div>Articles</div>
+                        <div className={splitLocation[1] === "articles" ? "home-col-item-active" : ""}>Articles</div>
                     </Link>
-                    <Link to='/'>
-                        <div>About</div>
+                    <Link to='/login'>
+                        <div className={splitLocation[1] === "login" ? "home-col-item-active" : ""}>Login</div>
+                    </Link>
+                    <Link to='/signup'>
+                        <div className={splitLocation[1] === "signup" ? "home-col-item-active" : ""}>Signup</div>
                     </Link>
                 </div> : null}
             </div>

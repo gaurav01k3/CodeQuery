@@ -141,14 +141,22 @@
 
 .ask-right {
     width: 30%;
-    border: 2px solid;
     margin-left: 15px;
-    min-height: 500px;
-    padding: 10px;
+    height: max-content;
+    padding: 20px;
     border-radius: 5px;
-    background-color: #4e99fca2;
+    font-size: 16px;
+    box-shadow: 0 1px 3px hsl(0deg 0% 0% / 6%), 0 2px 6px hsl(0deg 0% 0% / 6%), 0 3px 8px hsl(0deg 0% 0% / 9%);
 }
 
+.ask-right-pointer {
+    margin-top: 10px;
+}
+
+.ask-right span {
+    color: #4e9afc;
+    font-weight: 500;
+}
 
 /* toolbar */
 

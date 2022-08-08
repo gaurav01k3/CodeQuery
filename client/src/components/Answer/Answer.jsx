@@ -15,7 +15,6 @@ const Answer = ({ ques_id, data: answer }) => {
     const user = useSelector((state) => state.userDetails.existingUser);
     const queryClient = useQueryClient();
 
-    console.log(answer._id);
 
     const notify = () => toast.warning('You cannot vote for your own answer!', {
         position: "top-center",
@@ -28,7 +27,7 @@ const Answer = ({ ques_id, data: answer }) => {
     });
 
     useEffect(() => {
-        if (answer?.voters.indexOf(user._id) !== -1) {
+        if (answer?.voters.indexOf(user?._id) !== -1) {
             setIsvoted(true);
         }
     }, [])
@@ -74,17 +73,17 @@ const Answer = ({ ques_id, data: answer }) => {
 
     const handleVote = () => {
         if (!isVoted) {
-            if (answer.createdBy === user._id) {
+            if (answer.createdBy === user?._id) {
                 notify();
             } else {
                 likeAns({
-                    voter_id: user._id,
+                    voter_id: user?._id,
                     ans_id: answer._id,
                 })
             }
         } else {
             disLikeAns({
-                voter_id: user._id,
+                voter_id: user?._id,
                 ans_id: answer._id,
             })
         }

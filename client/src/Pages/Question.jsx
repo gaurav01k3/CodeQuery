@@ -6,11 +6,7 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router';
 import '../styles/Question/question-col-2.css'
 import MDEditor from '@uiw/react-md-editor';
-import { TiArrowSortedUp, TiArrowSortedDown } from 'react-icons/ti';
-import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import { BsTriangleFill } from 'react-icons/bs';
-import { VscTriangleUp } from 'react-icons/vsc';
-import { IoTriangleSharp } from 'react-icons/io5';
 
 import Answer from '../components/Answer/Answer';
 import Moment from 'react-moment';
@@ -23,20 +19,16 @@ import Loader from '../components/Loader/Loader';
 const Question = () => {
 
     const { id } = useParams();
-    console.log(id);
     const [bodyContent, setBodyContent] = useState("");
     const [isVoted, setIsvoted] = useState(false);
     const user = useSelector((state) => state.userDetails.existingUser);
     const navigate = useNavigate();
+    const queryClient = useQueryClient();
+
 
     useEffect(() => {
-        if (!user) {
-            navigate('/login');
-        }
-    })
-
-
-    const queryClient = useQueryClient();
+        window.scrollTo(0, 0);
+    }, [])
 
     //getting question by id
     const { data: question, isLoading } = useQuery(['question_' + id],
@@ -51,7 +43,7 @@ const Question = () => {
             onSuccess: (question) => {
                 // handleIsVoted(question);
                 // console.log("question is", question);
-                if (question?.data.voters.indexOf(user._id) !== -1) {
+                if (question?.data.voters.indexOf(user?._id) !== -1) {
                     setIsvoted(true);
                 }
             }
@@ -137,30 +129,34 @@ const Question = () => {
 
 
     const handleSubmit = () => {
-        postAnswer({
-            body: bodyContent,
-            question: id,
-            createdBy: user._id
-        })
-    }
-
-    const handleVote = () => {
-        if (!isVoted) {
-            likeQues({
-                voter_id: user._id,
-                ques_id: id,
+        if (user) {
+            postAnswer({
+                body: bodyContent,
+                question: id,
+                createdBy: user?._id
             })
         } else {
-            disLikeQues({
-                voter_id: user._id,
-                ques_id: id,
-            })
+            alert('You must be loged in to answer!!')
         }
     }
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+    const handleVote = () => {
+        if (!user) {
+            alert('You must be loged in to vote!!');
+        } else {
+            if (!isVoted) {
+                likeQues({
+                    voter_id: user?._id,
+                    ques_id: id,
+                })
+            } else {
+                disLikeQues({
+                    voter_id: user?._id,
+                    ques_id: id,
+                })
+            }
+        }
+    }
 
 
     return (

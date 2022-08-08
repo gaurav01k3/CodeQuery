@@ -48,10 +48,22 @@ const questionAskController = async (req, res) => {
     }
 }
 
+//getting all questions
 const allQuestionsController = async (req, res) => {
+
+    const PAGE_SIZE = 10;
+    const page = parseInt(req.query.page || "0");
+
     try {
-        const data = await questionModel.find().sort({ "createdAt": -1 }).populate('createdBy', '-password')
-        res.json({ data });
+
+        const total = await questionModel.countDocuments({});
+        const data = await questionModel.find().limit(PAGE_SIZE).skip(PAGE_SIZE * page).sort({ "createdAt": -1 }).populate('createdBy', '-password');
+
+        res.json({
+            totalPages: Math.ceil(total / PAGE_SIZE),
+            data
+        });
+
     } catch (error) {
         console.log(error);
     }

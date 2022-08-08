@@ -22,7 +22,7 @@ const ArticleCard = ({ articleData }) => {
         <div onClick={() => { navigate(`/article/${articleData._id}`) }} className='article-card-wrapper'>
             <div className="article-card-header">
                 <div className="article-card-owner-image">
-                    <img src={img} alt="" />
+                    <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" alt="" />
                 </div>
                 <div className="article-card-owner">
                     {articleData?.createdBy.name}

@@ -17,24 +17,55 @@
     display: none;
 }
 
-.home-colo-3-header{
+.home-colo-3-header {
     text-align: center;
     font-size: 18px;
 }
 
-.home-col-3-img{
- width: 100%;
+.home-col-3-img {
+    width: 100%;
 }
 
-.home-col-3-img img{
+.home-col-3-img img {
     width: 100%;
     object-fit: contain;
 }
 
 
 @media screen and (min-width:990px) {
-    .home-col-3{
+    .home-col-3 {
         display: block;
     }
 }
 
+/* pagination  */
+
+.question-pagination-wrapper {
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.question-pagination {
+    display: inline-block;
+}
+
+.question-pagination div {
+    font-size: 16px;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    cursor: pointer;
+}
+
+.question-pagination div.active {
+    background-color: #26519e;
+    color: white;
+}
+
+.question-pagination div:hover:not(.active) {
+    background-color: #ddd;
+}

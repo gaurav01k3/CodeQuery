@@ -61,7 +61,7 @@ const WriteArticle = () => {
             title,
             body: bodyContent,
             // tags,
-            createdBy: user._id
+            createdBy: user?._id
         })
     }
 

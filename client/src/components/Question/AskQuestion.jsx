@@ -13,7 +13,7 @@ const AskQuestion = () => {
 
 
     const user = useSelector((state) => state.userDetails.existingUser);
-    // console.log(user._id);
+    // console.log(user?._id);
 
     const navigate = useNavigate();
 
@@ -76,7 +76,7 @@ const AskQuestion = () => {
             title,
             body: bodyContent,
             tags,
-            createdBy: user._id
+            createdBy: user?._id
         })
     }
 
@@ -189,8 +189,27 @@ const AskQuestion = () => {
 
                     </div>
                     <div className="ask-right">
-                        How to ask ?
-                        Best Asking stretegy
+                        <div>
+                            <span>Asking a good question, </span>
+                            You’re ready to ask your first programming-related question and the community is here to help! To get you the best answers, we’ve provided some guidance:
+
+                        </div>
+
+                        <div className="ask-right-pointer">
+                            <span>1.</span> Summarize the problem
+                        </div>
+                        <div className="ask-right-pointer">
+                            <span>2.</span> Describe what you’ve tried
+                        </div>
+                        <div className="ask-right-pointer">
+                            <span>3.</span> When appropriate, show some code
+                        </div>
+                        <div className="ask-right-pointer">
+                            <span>4.</span> Use proper tags to your ask.
+                        </div>
+                        <div className="ask-right-pointer">
+                            <span>5.</span> Add images if required.
+                        </div>
                     </div>
                 </div>
                 <div className="ask-submit-button btn"

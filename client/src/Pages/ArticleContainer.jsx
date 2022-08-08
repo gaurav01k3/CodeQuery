@@ -29,7 +29,7 @@ const ArticleContainer = () => {
             <div className="article-container-col-2">
                 <div className="article-container-header">
                     <div>
-                        Recommended
+                        Top Articles
                     </div>
                     {/* <div>
                         Following

@@ -56,3 +56,11 @@
     font-size: 18px;
     text-align: center;
 }
+
+
+@media screen and (max-width:650px) {
+    .home-col-2-header-title {
+        font-size: 25px;
+    }
+
+}
