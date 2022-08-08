@@ -176,12 +176,21 @@ const Navbar = () => {
                     <Link to='/articles'>
                         <div className={splitLocation[1] === "articles" ? "home-col-item-active" : ""}>Articles</div>
                     </Link>
-                    <Link to='/login'>
-                        <div className={splitLocation[1] === "login" ? "home-col-item-active" : ""}>Login</div>
-                    </Link>
-                    <Link to='/signup'>
-                        <div className={splitLocation[1] === "signup" ? "home-col-item-active" : ""}>Signup</div>
-                    </Link>
+                    {
+                        token === undefined ?
+                            <>
+                                <Link to='/login'>
+                                    <div className={splitLocation[1] === "login" ? "home-col-item-active" : ""}>Login</div>
+
+                                </Link>
+                                <Link to='/signup'>
+                                    <div className={splitLocation[1] === "signup" ? "home-col-item-active" : ""}>Signup</div>
+                                </Link>
+                            </> :
+                            <Link to='/'>
+                                <div className={splitLocation[1] === "about" ? "home-col-item-active" : ""}>About</div>
+                            </Link>
+                    }
                 </div> : null}
             </div>
         </div >
