@@ -67,5 +67,5 @@ const removeVoteAnswerController = async (req, res) => {
 module.exports = {
     postAnswerController,
     addVoteAnswerController,
-    removeVoteAnswerController
+    removeVoteAnswerController,
 };

@@ -5,12 +5,15 @@
 .home-question-card {
     display: flex;
     width: 100%;
-    border: .5px solid rgba(128, 128, 128, 0.315);
-    padding: 15px 5px 15px 50px;
-    /* background-color: hsla(206, 100%, 84%, 0.61); */
+    border-top: .5px solid rgba(128, 128, 128, 0.315);
+    padding: 15px 5px 15px 10px;
 }
 
+
+/* card left  */
 .home-question-card-left {
+    /* border: 1px solid; */
+    width: 80px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -22,6 +25,11 @@
     margin-bottom: 10px;
 }
 
+.home-question-card-votes {
+    color: black;
+}
+
+
 .home-question-card-answer-count {
     border: 1px solid green;
     padding: 3px;
@@ -29,6 +37,10 @@
     color: green;
 }
 
+/* ------>>>>>>>>>>  */
+
+
+/* card right  */
 .home-question-card-right {
     flex: 1;
     font-size: 16px;
@@ -45,12 +57,14 @@
 }
 
 .home-question-right-tags div {
-    border: 1px solid;
     margin-right: 3px;
+    font-weight: 500;
     padding: 5px 8px;
     font-size: 12px;
     cursor: pointer;
-    color: hsl(206, 100%, 40%);
+    color: hsl(205, 47%, 42%);
+    background-color: hsl(205, 46%, 92%);
+    border-radius: 3px;
 }
 
 .home-question-right-tag-time {
@@ -62,6 +76,8 @@
 
 .home-question-time {
     font-size: 12px;
+    color: hsl(210, 8%, 45%);
+    font-weight: 500;
 }
 
 /* //answers */
@@ -72,12 +88,51 @@
     font-size: 21px;
 }
 
-.owner {
-    width: max-content;
+.question-owner {
+    margin-top: 20px;
+    width: 150px;
     padding: 7px 14px 7px 10px;
     margin-left: auto;
-    background-color: #cfdcf4;
     font-size: 14px;
+    background-color: hsl(206, 96%, 90%);
+}
+
+.question-owner-details {
+    display: flex;
+    margin-top: 5px;
+    align-items: center;
+}
+
+.question-owner-head {
+    font-weight: 500;
+    font-size: 12px;
+    color: rgba(117, 117, 117, 1);
+}
+
+.question-owner-image {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.question-owner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.question-owner-name {
+    font-size: 12px;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: hsl(206, 100%, 40%);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.question-owner-name:hover {
+    text-decoration: underline;
 }
 
 @media screen and (max-width:650px) {

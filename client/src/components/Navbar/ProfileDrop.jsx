@@ -5,12 +5,14 @@ import { CgProfile } from 'react-icons/cg';
 import { BsBookmarkStar } from 'react-icons/bs';
 import { MdOutlineArticle } from 'react-icons/md';
 import { useNavigate } from 'react-router';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Cookies from 'js-cookie';
 import getUser from '../../redux/actions/user.action';
 
 const ProfileDrop = React.forwardRef((props, ref) => {
 
+
+    const user = useSelector((state) => state.userDetails.existingUser);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -28,7 +30,7 @@ const ProfileDrop = React.forwardRef((props, ref) => {
             <div className='profile-drop-item'>
                 <CgProfile fontSize={25} />
                 <div
-                    onClick={() => navigate('/users')}
+                    onClick={() => navigate(`/users/${user._id}`)}
                     className='profile-item-heading'>Profile</div>
             </div>
             <div className='profile-drop-item'>

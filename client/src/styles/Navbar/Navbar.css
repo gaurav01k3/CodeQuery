@@ -157,7 +157,7 @@
     justify-content: center;
     letter-spacing: .5px;
     transition: all .3s ease-in-out;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .navbar-auth-item:hover {

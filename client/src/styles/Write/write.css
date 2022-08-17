@@ -21,13 +21,13 @@
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     transition: all .4s ease-in-out;
     font-size: 16px;
+    border-radius: 10px;
 }
 
-.write-card-wrapper:hover {
+/* .write-card-wrapper:hover {
     width: 375px;
     height: 375px;
-    /* padding: 35px 40px; */
-}
+} */
 
 .write-card-content {
     text-align: center;
@@ -56,4 +56,5 @@
     font-size: 25px;
     font-weight: 500;
     text-transform: capitalize;
+    color: #26519e;
 }

@@ -98,12 +98,12 @@ const Routing = () => {
             <Footer />
           </Fragment>
         } />
-      <Route exact path='/users'
+      <Route exact path='/users/:user_id'
         element={
           <Fragment>
-            <RequireLogin auth={token}>
-              <Profile />
-            </RequireLogin>
+            {/* <RequireLogin auth={token}> */}
+            <Profile />
+            {/* </RequireLogin> */}
           </Fragment>
         } />
       <Route exact path='/articles'
@@ -116,6 +116,14 @@ const Routing = () => {
         element={
           <Fragment>
             <Article />
+          </Fragment>
+        } />
+      <Route exact path='*'
+        element={
+          <Fragment>
+            <div>
+              404 not found
+            </div>
           </Fragment>
         } />
     </Routes>

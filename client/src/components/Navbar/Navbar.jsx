@@ -5,16 +5,14 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import NavbarSearch from './NavbarSearch';
 import Cookies from 'js-cookie';
 import ProfileDrop from './ProfileDrop';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
     // Storing token to verifying login and logout
     const token = Cookies.get('CQ-token');
-
     const location = useLocation();
     const { pathname } = location;
     const splitLocation = pathname.split("/");
-    console.log(splitLocation);
-
     const navigate = useNavigate();
 
     const [isHamOpen, setIsHamOpen] = useState(false);
@@ -108,7 +106,7 @@ const Navbar = () => {
                 <Link to='/'>
                     <div className="navbar-logo">
                         CODEQUERY
-                        <div className='navbar-logo-beta'>beta</div>
+                        {/* <div className='navbar-logo-beta'>beta</div> */}
                     </div>
                 </Link>
                 <div className="navbar-item-wrapper">

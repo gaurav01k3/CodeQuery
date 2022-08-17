@@ -1,3 +1,4 @@
+const { model } = require("mongoose");
 const { findByIdAndUpdate } = require("../models/question.model");
 const questionModel = require("../models/question.model");
 const userModel = require("../models/user.model");
@@ -59,6 +60,8 @@ const allQuestionsController = async (req, res) => {
         const total = await questionModel.countDocuments({});
         const data = await questionModel.find().limit(PAGE_SIZE).skip(PAGE_SIZE * page).sort({ "createdAt": -1 }).populate('createdBy', '-password');
 
+        // data.populate('answers.createdBy')
+
         res.json({
             totalPages: Math.ceil(total / PAGE_SIZE),
             data
@@ -73,8 +76,19 @@ const allQuestionsController = async (req, res) => {
 const questionByIdController = async (req, res) => {
     const id = req.params.id;
     try {
-        const data = await questionModel.find({ _id: id }).populate('createdBy', '-password').populate('answers')
-        // console.log(data[0]);
+        const data = await questionModel.find({ _id: id }).
+            populate('createdBy', '-password').
+            populate({
+                path: 'answers',
+                model: 'Answer',
+                populate: {
+                    path: 'createdBy',
+                    model: 'User',
+                    select: 'name'
+                }
+            }
+            );
+
         res.json({ data: data[0] });
     } catch (error) {
         console.log(error);
@@ -130,6 +144,42 @@ const removeVoteQuestionController = async (req, res) => {
     }
 }
 
+
+const addBookmarkQuestionController = async (req, res) => {
+
+    const { user_id, ques_id } = req.body;
+    if (!user_id || !ques_id)
+        return res.status(422).json({ message: "Insufficient information send!!" });
+
+    try {
+        const question = await questionModel.findByIdAndUpdate(ques_id,
+            { $push: { markedby: user_id } }, { new: true });
+
+        res.send(question);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+const removeBookmarkQuestionController = async (req, res) => {
+
+    const { user_id, ques_id } = req.body;
+    if (!user_id || !ques_id)
+        return res.status(422).json({ message: "Insufficient information send!!" });
+
+    try {
+        const question = await questionModel.findByIdAndUpdate(ques_id,
+            { $pull: { markedby: user_id } }, { new: true });
+
+        res.send(question);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+
 module.exports = {
     questionAskController,
     allQuestionsController,
@@ -137,4 +187,7 @@ module.exports = {
     addAnswerController,
     addVoteQuestionController,
     removeVoteQuestionController,
+    addBookmarkQuestionController,
+    removeBookmarkQuestionController
+
 };

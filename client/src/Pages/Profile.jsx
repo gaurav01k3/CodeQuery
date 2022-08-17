@@ -2,19 +2,22 @@ import axios from 'axios';
 import React from 'react'
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 import HomeColLeft from '../components/Home/HomeColLeft'
 import '../styles/Profile/profile.css';
 
 const Profile = () => {
 
+
+    const { user_id } = useParams();
     const user = useSelector((state) => state.userDetails.existingUser);
 
     const { data: userProf } = useQuery(
-        'user' + user?._id,
+        'user' + user_id,
         async () => {
             const res = await axios({
                 method: 'get',
-                url: `/api/v1/user-profile/${user?._id}`
+                url: `/api/v1/user-profile/${user_id}`
             })
             return res.data;
         }
@@ -42,9 +45,13 @@ const Profile = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="profile-actions">
-                        Edit Profile
-                    </div>
+                    {
+                        (user?._id === user_id) ?
+                            <div className="profile-actions">
+                                Edit Profile
+                            </div> :
+                            null
+                    }
                 </div>
                 <div className="profile-stats">
                     <div className="profile-stats-head">

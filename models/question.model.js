@@ -21,6 +21,12 @@ const questionSchema = new mongoose.Schema({
             type: String,
         }
     ],
+    markedby: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ],
     answers: [
         {
             type: mongoose.Schema.Types.ObjectId,

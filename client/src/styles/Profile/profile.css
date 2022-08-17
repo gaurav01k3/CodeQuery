@@ -1,5 +1,5 @@
 .profile-wrapper {
-    border: 2px solid;
+    /* border: 2px solid; */
     flex: 1;
 }
 
@@ -70,7 +70,7 @@
 /* stats */
 
 .profile-stats {
-    border: 1px solid;
+    /* border: 1px solid; */
     margin-top: 10px;
     padding: 20px 20px;
 }

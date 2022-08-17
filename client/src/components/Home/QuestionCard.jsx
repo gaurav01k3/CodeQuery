@@ -10,7 +10,7 @@ const QuestionCard = ({ data }) => {
     return (
         <div className="home-question-card">
             <div className="home-question-card-left">
-                <div>{data?.voters.length} votes</div>
+                <div className='home-question-card-votes'>{data?.voters.length} votes</div>
                 <div className={
                     data?.answers.length ? 'home-question-card-answer-count' : ''}>{data?.answers.length} answers</div>
                 <div>40 views</div>

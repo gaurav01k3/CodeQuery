@@ -16,7 +16,7 @@ const Answer = ({ ques_id, data: answer }) => {
     const queryClient = useQueryClient();
 
 
-    const notify = () => toast.warning('You cannot vote for your own answer!', {
+    const notify = (message) => toast.warning(message, {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: true,
@@ -27,7 +27,7 @@ const Answer = ({ ques_id, data: answer }) => {
     });
 
     useEffect(() => {
-        if (answer?.voters.indexOf(user?._id) !== -1) {
+        if (answer?.voters?.indexOf(user?._id) !== -1) {
             setIsvoted(true);
         }
     }, [])
@@ -72,9 +72,11 @@ const Answer = ({ ques_id, data: answer }) => {
     )
 
     const handleVote = () => {
-        if (!isVoted) {
+        if (!user) {
+            notify('You must be login to vote!')
+        } else if (!isVoted) {
             if (answer.createdBy === user?._id) {
-                notify();
+                notify('You cannot vote for your own question!');
             } else {
                 likeAns({
                     voter_id: user?._id,
@@ -115,19 +117,24 @@ const Answer = ({ ques_id, data: answer }) => {
                         }
                     </div>
                     <div className='question-vote-count'>
-                        {answer?.voters.length}
+                        {answer?.voters?.length}
                     </div>
                 </div>
-                <div className='question-colo-2-body-content'>
-                    <MDEditor.Markdown source={answer.body} />
+                <div className='question-col-2-body-content'>
+                    <MDEditor.Markdown source={answer?.body} />
                 </div>
             </div>
-            <div className='owner'>
-                <div className="owner-head">
-                    answered <Moment fromNow>{answer.createdAt}</Moment>
+            <div className='question-owner'>
+                <div className="question-owner-head">
+                    asked <Moment fromNow>{answer?.createdAt}</Moment>
                 </div>
-                <div className='owner-details'>
-                    {/* {answer?.createdBy.} */}
+                <div className='question-owner-details'>
+                    <div className='question-owner-image'>
+                        <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" alt="" />
+                    </div>
+                    <div className='question-owner-name'>
+                        {answer?.createdBy.name}
+                    </div>
                 </div>
             </div>
         </>
