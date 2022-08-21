@@ -3,7 +3,7 @@ import '../../styles/Navbar/profileDrop.css'
 import { IoIosLogOut } from 'react-icons/io';
 import { CgProfile } from 'react-icons/cg';
 import { BsBookmarkStar } from 'react-icons/bs';
-import { MdOutlineArticle } from 'react-icons/md';
+import { FiUsers } from 'react-icons/fi';
 import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import Cookies from 'js-cookie';
@@ -39,8 +39,8 @@ const ProfileDrop = React.forwardRef((props, ref) => {
             </div>
             <div className='profile-drop-item'
                 onClick={() => navigate('/articles')}>
-                <MdOutlineArticle fontSize={25} />
-                <div className='profile-item-heading'>Articles</div>
+                <FiUsers fontSize={25} />
+                <div className='profile-item-heading'>Users</div>
             </div>
             <div className='profile-drop-item'>
                 <IoIosLogOut color='#b23b3b' fontSize={25} />

@@ -4,7 +4,7 @@ import '../styles/Home/home-col-2.css';
 import QuestionCard from '../components/Home/QuestionCard';
 import { useQuery } from 'react-query';
 import axios from 'axios';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import HomeColLeft from '../components/Home/HomeColLeft';
 import Loader from '../components/Loader/Loader';
 import bannerImg from '../assets/banner.jpg'
@@ -16,26 +16,30 @@ const Home = () => {
 
     const [page, setPage] = useState(0);
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+    console.log(page);
+
+    const location = useLocation();
 
     const navigate = useNavigate();
 
-    const { data: questions, isLoading } = useQuery('all-questions_home',
+    const { data: questions, isLoading } = useQuery(['all_questions_', page],
         async () => {
             const res = await axios({
                 method: 'get',
-                url: `api/v1/all-questions?${page}`
+                url: `api/v1/all-questions?page=${page}`
             })
             return res.data;
         },
         {
             onSettled: () => {
-                // console.log(questions);
+                console.log(questions);
             }
         }
     )
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [page])
 
 
 
@@ -52,7 +56,7 @@ const Home = () => {
                         Ask Question
                     </div>
                 </div>
-                <div className="home-col-2-tag-row">
+                {/* <div className="home-col-2-tag-row">
                     <div className="home-col-2-tag-row-item">
                         Today
                     </div>
@@ -62,7 +66,7 @@ const Home = () => {
                     <div className="home-col-2-tag-row-item">
                         Month
                     </div>
-                </div>
+                </div> */}
                 {
                     !isLoading ? <div className="home-col-2-question">
                         {
@@ -75,24 +79,34 @@ const Home = () => {
                         <Loader />
                 }
 
-                {/* <div className='question-pagination-wrapper'>
-                    <div class="question-pagination">
-                        <div onClick={() => setPage(page - 1)}>&laquo;</div>
-                        <div className={page === 0 ? 'active' : null}
-                            onClick={() => setPage(0)}>{page + 1}</div>
-                        <div className={page === 1 ? 'active' : null}
-                            onClick={() => setPage(1)}>2</div>
-                        <div className={page === 2 ? 'active' : null}
-                            onClick={() => setPage(3)}>3</div>
-                        <div className={page === 1 ? 'active' : null}
-                            onClick={() => setPage(4)}>4</div>
-                        <div className={page === 1 ? 'active' : null}
-                            onClick={() => setPage(5)}>5</div>
-                        <div className={page === 1 ? 'active' : null}
-                            onClick={() => setPage(6)}>6</div>
-                        <div onClick={() => setPage(page + 1)}>&raquo;</div>
+                <div className='question-pagination-wrapper'>
+                    <div className="question-pagination">
+                        <div
+                            onClick={() => {
+                                if (page > 0) {
+                                    setPage(page - 1)
+                                }
+                            }}>
+                            &laquo;
+                        </div>
+
+                        {
+                            Array(questions?.totalPages)
+                                .fill(0)
+                                .map((el, idx) => (
+                                    <div className={page === idx ? 'active' : null}
+                                        onClick={() => setPage(idx)}>{idx + 1}</div>
+                                ))
+                        }
+
+                        <div
+                            onClick={() => {
+                                if (page < questions?.totalPages - 1) {
+                                    setPage(page + 1)
+                                }
+                            }}>&raquo;</div>
                     </div>
-                </div> */}
+                </div>
 
                 <div className='home-col-2-bottom'>
                     Looking for more? Browse the <a href="/"> complete list of questions</a>, or popular tags. Help us answer unanswered questions.

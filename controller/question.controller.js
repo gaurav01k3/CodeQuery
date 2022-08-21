@@ -52,7 +52,7 @@ const questionAskController = async (req, res) => {
 //getting all questions
 const allQuestionsController = async (req, res) => {
 
-    const PAGE_SIZE = 10;
+    const PAGE_SIZE = 15;
     const page = parseInt(req.query.page || "0");
 
     try {
@@ -66,6 +66,24 @@ const allQuestionsController = async (req, res) => {
             totalPages: Math.ceil(total / PAGE_SIZE),
             data
         });
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+//getting all questions by query
+const allQuestionsByQueryController = async (req, res) => {
+
+    const page = parseInt(req.query.search || "");
+
+    try {
+
+        const data = await questionModel.find().sort({ "createdAt": -1 }).populate('createdBy', '-password');
+
+
+        res.json(data);
 
     } catch (error) {
         console.log(error);
@@ -188,6 +206,6 @@ module.exports = {
     addVoteQuestionController,
     removeVoteQuestionController,
     addBookmarkQuestionController,
-    removeBookmarkQuestionController
-
+    removeBookmarkQuestionController,
+    allQuestionsByQueryController
 };

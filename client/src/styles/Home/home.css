@@ -41,7 +41,7 @@
 /* pagination  */
 
 .question-pagination-wrapper {
-    border: 1px solid;
+    padding: 0 20px;
     display: flex;
     justify-content: center;
     margin-top: 20px;
