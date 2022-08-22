@@ -48,7 +48,7 @@
 /* actions  */
 .question-actions {
     margin-top: 20px;
-    width: 10%;
+    min-width: 70px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -81,13 +81,14 @@
 }
 
 .question-col-2-body-content {
-    padding: 10px 5px;
-    width: 90%;
+    padding: 10px 10px;
 }
 
 .wmde-markdown pre {
     background-color: hsl(0, 0%, 96.5%);
-    max-width: 600px;
+    white-space: pre-wrap;
+    overflow: auto;
+    word-wrap: normal;
 }
 
 .wmde-markdown pre .copied:hover {
@@ -96,4 +97,18 @@
 
 .answer-editor-section {
     margin: 30px 0px 30px 10px;
+}
+
+@media screen and (max-width: 650px) {
+    .question-col-2-header {
+        font-size: 20px;
+    }
+
+    .question-col-2-status-row {
+        font-size: 12px;
+    }
+
+    .wmde-markdown {
+        font-size: 14px;
+    }
 }

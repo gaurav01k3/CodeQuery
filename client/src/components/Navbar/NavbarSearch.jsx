@@ -11,6 +11,7 @@ const NavbarSearch = () => {
 
     const [focused, setFocused] = useState(false);
     const [query, setQuery] = useState("");
+    console.log(query);
     const navigate = useNavigate();
 
 
@@ -20,7 +21,7 @@ const NavbarSearch = () => {
         async () => {
             const res = await axios({
                 method: 'get',
-                url: `api/v1/find?search=${query}`
+                url: `/api/v1/find?search=${query}`
             })
             return res.data;
         },

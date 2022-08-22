@@ -275,6 +275,7 @@ const Question = () => {
                             </div>
 
                             <div className="question-body-wrapper">
+
                                 <div className='question-actions'>
                                     <div className='question-vote-icon'>
                                         {!isVoted ?
@@ -303,6 +304,8 @@ const Question = () => {
                                     <MDEditor.Markdown source={question?.data.body} />
                                 </div>
                             </div>
+
+
                             <div className='question-owner'>
                                 <div className="question-owner-head">
                                     asked <Moment fromNow>{question?.data.createdAt}</Moment>
