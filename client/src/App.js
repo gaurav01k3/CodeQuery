@@ -22,6 +22,7 @@ import ArticleContainer from './Pages/ArticleContainer';
 import Write from './Pages/Write';
 import WriteArticle from './components/Article/WriteArticle';
 import Article from './Pages/Article';
+import FOF from './Pages/FOF';
 
 const Routing = () => {
 
@@ -121,9 +122,7 @@ const Routing = () => {
       <Route exact path='*'
         element={
           <Fragment>
-            <div>
-              404 not found
-            </div>
+            <FOF />
           </Fragment>
         } />
     </Routes>

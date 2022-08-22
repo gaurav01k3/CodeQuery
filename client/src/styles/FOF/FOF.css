@@ -1,0 +1,56 @@
+.fof-wrapper {
+    max-width: 500px;
+    max-height: 500px;
+    /* border: 2px solid; */
+    margin: 50px auto;
+}
+
+.fof-gif {
+    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 50vw;
+    /* width: 100%; */
+    background-position: center;
+}
+
+.fof-content-wrapper {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fof-heading {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: cursive, sans-serif;
+}
+
+.fof-sub-head {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.fof-go-to-home {
+    font-size: 14px;
+    border: 1px solid white;
+    color: white;
+    background-color: hsl(206, 100%, 40%);
+    padding: 10px 15px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    transition: all .1s ease-in-out;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.fof-go-to-home:hover {
+    cursor: pointer;
+}
+
+.home-col-2-header-ask-button:hover {
+    background-color: #26509ee5;
+    /* box-shadow: 0 0 40px 40px white inset; */
+}

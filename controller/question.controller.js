@@ -76,12 +76,12 @@ const allQuestionsController = async (req, res) => {
 //getting all questions by query
 const allQuestionsByQueryController = async (req, res) => {
 
-    const page = parseInt(req.query.search || "");
+    const search = req.query.search;
+
 
     try {
-
-        const data = await questionModel.find().sort({ "createdAt": -1 }).populate('createdBy', '-password');
-
+        const regex = new RegExp(search, 'i');
+        const data = await questionModel.find({ "title": { $regex: regex } }).sort({ "createdAt": -1 }).populate('createdBy', '-password');
 
         res.json(data);
 

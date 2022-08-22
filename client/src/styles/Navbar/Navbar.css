@@ -144,6 +144,80 @@
     color: white;
 }
 
+
+.navbar-search-drop {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    max-height: 400px;
+    overflow-y: scroll;
+    background-color: white;
+    border: 1px solid #888;
+}
+
+.navbar-search-drop-item-wrapper {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 6px;
+    cursor: pointer;
+}
+
+.navbar-search-drop-Q {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1c3c75;
+    margin-right: 10px;
+}
+
+.navbar-search-drop-item {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* margin-left: 10px; */
+    font-size: 16px;
+    font-weight: 500;
+    color: #26519e;
+}
+
+.navbar-search-drop-item-wrapper:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.navbar-search-drop::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+.search-no-results {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.search-no-results:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Track */
+.navbar-search-drop::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.navbar-search-drop::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.navbar-search-drop::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* --------------------> */
+
 /* navbar-auth  */
 .navbar-auth-item {
     font-size: 16px;
@@ -302,9 +376,9 @@
 
 @media screen and (max-width:786px) {
 
-    .navbar-search {
+    /* .navbar-search {
         display: none;
-    }
+    } */
 
     .navbar-auth-search-icon {
         display: flex;
@@ -315,13 +389,23 @@
     .navbar-auth {
         margin-left: auto;
     }
+
 }
 
+@media screen and (max-width:670px) {
 
-@media screen and (max-width:500px) {
     .navbar-auth-item {
         display: none;
     }
+
+}
+
+@media screen and (max-width:550px) {
+
+    .navbar-search-drop {
+        width: 300px;
+    }
+
 }
 
 

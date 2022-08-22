@@ -16,8 +16,6 @@ const Home = () => {
 
     const [page, setPage] = useState(0);
 
-    console.log(page);
-
     const location = useLocation();
 
     const navigate = useNavigate();
@@ -32,7 +30,7 @@ const Home = () => {
         },
         {
             onSettled: () => {
-                console.log(questions);
+                // console.log(questions);
             }
         }
     )
@@ -94,7 +92,9 @@ const Home = () => {
                             Array(questions?.totalPages)
                                 .fill(0)
                                 .map((el, idx) => (
-                                    <div className={page === idx ? 'active' : null}
+                                    <div
+                                        key={idx}
+                                        className={page === idx ? 'active' : null}
                                         onClick={() => setPage(idx)}>{idx + 1}</div>
                                 ))
                         }

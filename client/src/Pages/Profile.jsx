@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
@@ -22,6 +22,11 @@ const Profile = () => {
             return res.data;
         }
     )
+
+    useEffect(() => {
+        window.scroll(0, 0);
+    })
+
 
     return (
         <div className='home-wrapper'>

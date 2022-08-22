@@ -83,18 +83,6 @@ const Navbar = () => {
         <div
             className='navbar-parent'>
 
-            {/* second search bar */}
-            {/* <div className={isSearchOpen ? "navbar-search navbar-cond-search" : "navbar-cond-search-display navbar-search navbar-cond-search"}>
-                <div className='navbar-search-input'>
-                    <div className='navbar-search-icon'>
-                        <GoSearch fontSize={14} opacity={0.5} />
-                    </div>
-                    <input
-                        type="text" placeholder='Search here...' />
-                </div>
-            </div> */}
-
-
             <div
                 className='navbar-wrapper'>
                 <div
@@ -124,10 +112,10 @@ const Navbar = () => {
                 {
                     token === undefined ? (
                         <div className="navbar-auth">
-                            <div className='navbar-auth-search-icon'
+                            {/* <div className='navbar-auth-search-icon'
                                 onClick={() => handleSearch()}>
                                 <GoSearch fontSize={20} opacity={1} />
-                            </div>
+                            </div> */}
                             <Link to='/login'>
                                 <div className='navbar-auth-item'>Login</div>
                             </Link>
@@ -138,12 +126,6 @@ const Navbar = () => {
                     ) :
                         (
                             <div className="navbar-auth">
-                                <div
-                                    className='navbar-auth-search-icon'
-                                    onClick={() => handleSearch()}>
-                                    <GoSearch fontSize={20} opacity={1}
-                                    />
-                                </div>
                                 <div
                                     ref={profileCircle}
                                     onClick={handleProfileDrop}

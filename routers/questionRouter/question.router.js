@@ -1,6 +1,6 @@
 const express = require("express");
 const questionModel = require("../../models/question.model");
-const { allQuestionsController, questionAskController, questionByIdController, addAnswerController, addVoteQuestionController, removeVoteQuestionController, addBookmarkQuestionController, removeBookmarkQuestionController } = require('../../controller/question.controller')
+const { allQuestionsController, questionAskController, questionByIdController, addAnswerController, addVoteQuestionController, removeVoteQuestionController, addBookmarkQuestionController, removeBookmarkQuestionController, allQuestionsByQueryController } = require('../../controller/question.controller')
 
 
 
@@ -30,6 +30,10 @@ questionRouter.put('/question/add-bookmark', addBookmarkQuestionController)
 
 //remove bookmark question to user
 questionRouter.put('/question/remove-bookmark', removeBookmarkQuestionController)
+
+
+//all questions with search query
+questionRouter.get('/find', allQuestionsByQueryController)
 
 
 module.exports = questionRouter;

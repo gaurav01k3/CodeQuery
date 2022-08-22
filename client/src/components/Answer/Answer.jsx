@@ -8,6 +8,7 @@ import axios from 'axios';
 import { BsTriangleFill } from 'react-icons/bs';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router';
 
 const Answer = ({ ques_id, data: answer }) => {
 
@@ -15,6 +16,7 @@ const Answer = ({ ques_id, data: answer }) => {
     const user = useSelector((state) => state.userDetails.existingUser);
     const queryClient = useQueryClient();
 
+    const navigate = useNavigate();
 
     const notify = (message) => toast.warning(message, {
         position: "top-center",
@@ -132,7 +134,9 @@ const Answer = ({ ques_id, data: answer }) => {
                     <div className='question-owner-image'>
                         <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" alt="" />
                     </div>
-                    <div className='question-owner-name'>
+                    <div
+                        onClick={() => navigate(`/users/${answer?.createdBy._id}`)}
+                        className='question-owner-name'>
                         {answer?.createdBy.name}
                     </div>
                 </div>
