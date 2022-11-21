@@ -24,7 +24,7 @@ const Home = () => {
         async () => {
             const res = await axios({
                 method: 'get',
-                url: `api/v1/all-questions?page=${page}`
+                url: `/api/v1/all-questions?page=${page}`
             })
             return res.data;
         },
