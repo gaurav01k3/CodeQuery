@@ -35,7 +35,9 @@ const ProfileDrop = React.forwardRef((props, ref) => {
             </div>
             <div className='profile-drop-item'>
                 <BsBookmarkStar fontSize={25} />
-                <div className='profile-item-heading'>Bookmarks</div>
+                <div
+                    // onClick={() => navigate(`/bookmarks`)}
+                    className='profile-item-heading'>Bookmarks</div>
             </div>
             <div className='profile-drop-item'
                 onClick={() => navigate('/articles')}>

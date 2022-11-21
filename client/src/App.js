@@ -23,6 +23,7 @@ import Write from './Pages/Write';
 import WriteArticle from './components/Article/WriteArticle';
 import Article from './Pages/Article';
 import FOF from './Pages/FOF';
+import Bookmarks from './Pages/Bookmarks';
 
 const Routing = () => {
 
@@ -117,6 +118,14 @@ const Routing = () => {
         element={
           <Fragment>
             <Article />
+          </Fragment>
+        } />
+      <Route exact path='/bookmarks'
+        element={
+          <Fragment>
+            <RequireLogin auth={token}>
+              <Bookmarks />
+            </RequireLogin>
           </Fragment>
         } />
       <Route exact path='*'
