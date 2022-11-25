@@ -6,6 +6,7 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import Moment from 'react-moment';
 import Loader from '../components/Loader/Loader';
+import userImg from '../assets/imageuser.jpg';
 
 const Article = () => {
 
@@ -28,7 +29,7 @@ const Article = () => {
             <div className='article-wrapper'>
                 <div className="article-owner-details">
                     <div className="article-owner-profile">
-                        <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" alt="" />
+                        <img src={userImg} alt="" />
                     </div>
                     <div className="article-credentials">
                         <div className="article-owner-name">
@@ -42,9 +43,6 @@ const Article = () => {
                 <div className="article-title">
                     {data?.articleContent.title}
                 </div>
-                {/* <div className="article-image">
-                    <img src="https://s3.ap-south-1.amazonaws.com/afteracademy-server-uploads/what-is-fragmentation-and-what-are-its-types-banner-d452d024f71c28ba.png" alt="" />
-                </div> */}
                 <div className='article-body'>
                     <MDEditor.Markdown source={data?.articleContent.body} />
                 </div>

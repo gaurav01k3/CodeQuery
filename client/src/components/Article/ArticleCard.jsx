@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import img from '../../assets/github.png'
+import userImg from '../../assets/imageuser.jpg'
 import banner from '../../assets/banner.jpg'
 import '../../styles/Article/articleCard.css'
 import Moment from 'react-moment';
@@ -22,7 +23,7 @@ const ArticleCard = ({ articleData }) => {
         <div onClick={() => { navigate(`/article/${articleData._id}`) }} className='article-card-wrapper'>
             <div className="article-card-header">
                 <div className="article-card-owner-image">
-                    <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" alt="" />
+                    <img src={userImg} alt="" />
                 </div>
                 <div className="article-card-owner">
                     {articleData?.createdBy.name}

@@ -29,7 +29,7 @@ const Signup = () => {
     const navigate = useNavigate();
 
 
-    const { mutate } = useMutation(
+    const { mutate, isLoading } = useMutation(
         async (data) => {
             await axios({
                 method: 'post',
@@ -230,12 +230,20 @@ const Signup = () => {
                                     {passwordErrorMessage}
                                 </div>) : null}
                             </div>
-                            <div
-                                onClick={() => handleSubmit('submit')}
-                                className='register-submit-button btn'
-                            >
-                                Sign up
-                            </div>
+                            {
+                                isLoading ?
+                                    <div
+                                        className='register-submit-button btn'>
+                                        <span className="loaderAuth" ></span>
+                                    </div>
+                                    :
+                                    <div
+                                        onClick={() => handleSubmit('submit')}
+                                        className='register-submit-button btn'
+                                    >
+                                        Sign up
+                                    </div>
+                            }
                             <div className='signup-submit-button'>
                                 By clicking “Sign up”, you agree to
                                 <span> our terms of service</span>,

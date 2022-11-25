@@ -6,6 +6,7 @@ import NavbarSearch from './NavbarSearch';
 import Cookies from 'js-cookie';
 import ProfileDrop from './ProfileDrop';
 import { useSelector } from 'react-redux';
+import userImg from '../../assets/imageuser.jpg'
 
 const Navbar = () => {
     // Storing token to verifying login and logout
@@ -130,7 +131,7 @@ const Navbar = () => {
                                     ref={profileCircle}
                                     onClick={handleProfileDrop}
                                     className='navbar-profile-circle'>
-                                    <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" alt="" />
+                                    <img src={userImg} alt="" />
                                 </div>
                             </div>
                         )

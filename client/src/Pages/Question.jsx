@@ -14,6 +14,7 @@ import HomeColLeft from '../components/Home/HomeColLeft';
 import { useSelector } from 'react-redux';
 import Loader from '../components/Loader/Loader';
 import { Slide, toast, ToastContainer } from 'react-toastify';
+import userImg from '../assets/imageuser.jpg'
 
 
 
@@ -312,7 +313,7 @@ const Question = () => {
                                 </div>
                                 <div className='question-owner-details'>
                                     <div className='question-owner-image'>
-                                        <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" alt="" />
+                                        <img src={userImg} alt="" />
                                     </div>
                                     <div className='question-owner-name'
                                         onClick={() => navigate(`/users/${question?.data.createdBy._id}`)}>

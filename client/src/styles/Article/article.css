@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
 .article-wrapper {
     /* border: 2px solid; */
     width: 60vw;
@@ -60,24 +62,16 @@
 }
 
 
+.wmde-markdown {
+    font-size: 17px;
+    font-family: "PT Serif", Merriweather, Georgia, Cambria, Times New Roman, Times, serif;
+    color: rgb(51 51 51);
+}
+
 .article-body {
     margin-top: 30px;
     font-size: 16px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* media queries  */
 @media screen and (max-width:850px) {

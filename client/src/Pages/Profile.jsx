@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import HomeColLeft from '../components/Home/HomeColLeft'
 import '../styles/Profile/profile.css';
+import userImg from '../assets/imageuser.jpg'
 
 const Profile = () => {
 
@@ -34,7 +35,7 @@ const Profile = () => {
             <div className='profile-wrapper'>
                 <div className="profile-header">
                     <div className="profile-image">
-                        <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" alt="" />
+                        <img src={userImg} alt="" />
                         <div></div>
                     </div>
                     <div className="profile-details">

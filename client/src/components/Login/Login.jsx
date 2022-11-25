@@ -163,11 +163,20 @@ const Login = () => {
                                 {passwordErrorMessage}
                             </div>) : null}
                         </div>
-                        <div
-                            onClick={() => handleSubmit('submit')}
-                            className='register-submit-button btn'>
-                            Log in
-                        </div>
+
+                        {
+                            isLoading ?
+                                <div
+                                    className='register-submit-button btn'>
+                                    <span className="loaderAuth" ></span>
+                                </div>
+                                :
+                                <div
+                                    onClick={() => handleSubmit('submit')}
+                                    className='register-submit-button btn'>
+                                    Log in
+                                </div>
+                        }
                     </div>
                 </div>
 
