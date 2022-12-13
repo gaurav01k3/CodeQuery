@@ -162,6 +162,28 @@ const removeVoteQuestionController = async (req, res) => {
     }
 }
 
+const addViewQuestionController = async (req, res) => {
+
+    const { ques_id } = req.body;
+
+    console.log(ques_id);
+
+    if (!ques_id)
+        return res.status(422).json({ message: "Insufficient information send!!" });
+
+    try {
+        const question = await questionModel.findByIdAndUpdate(ques_id,
+            {
+                $inc: {
+                    views: 1
+                }
+            }, { new: true });
+        res.send(question);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
 const addBookmarkQuestionController = async (req, res) => {
 
@@ -196,6 +218,22 @@ const removeBookmarkQuestionController = async (req, res) => {
     }
 }
 
+// const getAllBookmarkQuestionController = async (req, res) => {
+
+//     const { user_id } = req.body;
+//     if (!user_id || !ques_id)
+//         return res.status(422).json({ message: "Insufficient information send!!" });
+
+//     try {
+//         const question = await questionModel.find({ createdBy._id : user_id },
+//             { $pull: { markedby: user_id } }, { new: true });
+
+//         res.send(question);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+
 
 
 module.exports = {
@@ -207,5 +245,6 @@ module.exports = {
     removeVoteQuestionController,
     addBookmarkQuestionController,
     removeBookmarkQuestionController,
-    allQuestionsByQueryController
+    allQuestionsByQueryController,
+    addViewQuestionController
 };

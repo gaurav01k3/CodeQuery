@@ -16,6 +16,10 @@ const questionSchema = new mongoose.Schema({
             required: true
         }
     ],
+    views: {
+        type: Number,
+        default: 0,
+    },
     voters: [
         {
             type: String,

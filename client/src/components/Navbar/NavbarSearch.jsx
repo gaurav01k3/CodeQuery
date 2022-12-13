@@ -11,7 +11,6 @@ const NavbarSearch = () => {
 
     const [focused, setFocused] = useState(false);
     const [query, setQuery] = useState("");
-    console.log(query);
     const navigate = useNavigate();
 
 

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import '../styles/Home/home.css';
 import '../styles/Home/home-col-2.css';
 import QuestionCard from '../components/Home/QuestionCard';
-import { useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router';
 import HomeColLeft from '../components/Home/HomeColLeft';
@@ -20,7 +20,7 @@ const Home = () => {
 
     const navigate = useNavigate();
 
-    const { data: questions, isLoading } = useQuery(['all_questions_', page],
+    const { data: questions, isLoading } = useQuery(['all_questions_' + page],
         async () => {
             const res = await axios({
                 method: 'get',
@@ -50,7 +50,7 @@ const Home = () => {
                         Top Questions
                     </div>
                     <div className="home-col-2-header-ask-button"
-                        onClick={() => navigate('/question/ask')}>
+                        onClick={() => navigate('/write/question/ask')}>
                         Ask Question
                     </div>
                 </div>

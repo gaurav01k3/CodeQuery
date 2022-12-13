@@ -7,6 +7,12 @@
     width: 100%;
     border-top: .5px solid rgba(128, 128, 128, 0.315);
     padding: 15px 5px 15px 10px;
+    cursor: pointer;
+    transition: all .3s ease-out;
+}
+
+.home-question-card:hover {
+    background-color: aliceblue;
 }
 
 
@@ -48,7 +54,6 @@
 
 .home-question-right-title {
     color: hsl(206, 100%, 40%);
-    cursor: pointer;
 }
 
 .home-question-right-tags {

@@ -1,6 +1,6 @@
 const express = require("express");
 const questionModel = require("../../models/question.model");
-const { allQuestionsController, questionAskController, questionByIdController, addAnswerController, addVoteQuestionController, removeVoteQuestionController, addBookmarkQuestionController, removeBookmarkQuestionController, allQuestionsByQueryController } = require('../../controller/question.controller')
+const { allQuestionsController, questionAskController, questionByIdController, addAnswerController, addVoteQuestionController, removeVoteQuestionController, addBookmarkQuestionController, removeBookmarkQuestionController, allQuestionsByQueryController, addViewQuestionController } = require('../../controller/question.controller')
 
 
 
@@ -24,6 +24,9 @@ questionRouter.put('/question/add-vote', addVoteQuestionController)
 
 //remove vote to question
 questionRouter.put('/question/remove-vote', removeVoteQuestionController)
+
+//add view to question
+questionRouter.put('/question/add-view', addViewQuestionController)
 
 //add bookmark question to user
 questionRouter.put('/question/add-bookmark', addBookmarkQuestionController)
