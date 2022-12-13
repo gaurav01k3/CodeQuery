@@ -35,7 +35,7 @@ const QuestionCard = ({ data }) => {
                 <div className='home-question-card-votes'>{data?.voters.length} votes</div>
                 <div className={
                     data?.answers.length ? 'home-question-card-answer-count' : ''}>{data?.answers.length} answers</div>
-                <div>{data?.views}</div>
+                <div>{data?.views} views</div>
             </div>
 
             <div className="home-question-card-right">
