@@ -1,4 +1,4 @@
-## Codequery - MERN STACK WEB APPLICATION - [Link to application](https://codequery.cyclic.app/)
+## Codequery - MERN STACK WEB APPLICATION - [Link to application](https://codequery-svfu.onrender.com/)
 
 * A problem solving platform that helps to resolve your bugs related to any coding language. 
 * Help others by sharing your knowledge.
